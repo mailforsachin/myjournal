@@ -1,3 +1,6 @@
+import BottomNav from "@/components/BottomNav.vue"
+
+
 <template>
   <div class="min-h-screen bg-base-200 flex flex-col">
     <!-- Header -->

@@ -11,14 +11,31 @@ const routes = [
     component: Login,
   },
   {
-    path: "/",
+    path: "/dashboard",
     component: Dashboard,
     meta: { requiresAuth: true },
   },
-	 { path: "/upload", component: Upload },
-	  { path: "/rules", component: Rules },
-
+  {
+    path: "/transactions",
+    component: () => import("../views/Transactions.vue"),
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/upload",
+    component: Upload,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/rules",
+    component: Rules,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/",
+    redirect: "/dashboard",
+  },
 ]
+
 
 const router = createRouter({
   history: createWebHistory(),
