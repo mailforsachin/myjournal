@@ -5,6 +5,9 @@ from app.database import get_db
 from app.auth.deps import get_current_user
 from app.finance.categorizer import categorize
 from app.utils.events import log_event
+import os
+
+RULES_PATH = os.path.join(os.path.dirname(__file__), "rules.json")
 
 router = APIRouter()
 
@@ -298,3 +301,17 @@ async def finance_summary(user_id: int = Depends(get_current_user)):
         "by_category": categories,
         "confirmed": confirmed,
     }
+@router.get("/rules")
+async def get_rules(user_id: int = Depends(get_current_user)):
+    with open(RULES_PATH) as f:
+        return json.load(f)
+
+@router.put("/rules")
+async def update_rules(
+    payload: dict,
+    user_id: int = Depends(get_current_user),
+):
+    with open(RULES_PATH, "w") as f:
+        json.dump(payload, f, indent=2)
+
+    return {"status": "updated"}
