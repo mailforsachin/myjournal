@@ -1,34 +1,35 @@
 <template>
-  <div class="p-4 space-y-4">
-    <h1 class="text-xl font-bold">Upload Bank CSV</h1>
+  <AppLayout title="Upload CSV" :showBack="true">
+    <div class="space-y-4">
+      <div
+        class="border-2 border-dashed rounded-xl p-6 text-center"
+        :class="dragging ? 'border-primary bg-base-200' : 'border-base-300'"
+        @dragover.prevent="dragging = true"
+        @dragleave.prevent="dragging = false"
+        @drop.prevent="handleDrop"
+      >
+        <p class="text-sm mb-2">Drag & drop CSV here</p>
+        <input type="file" accept=".csv" @change="handleFile" />
+      </div>
 
-    <div
-      class="border-2 border-dashed rounded-xl p-6 text-center"
-      :class="dragging ? 'border-primary bg-base-200' : 'border-base-300'"
-      @dragover.prevent="dragging = true"
-      @dragleave.prevent="dragging = false"
-      @drop.prevent="handleDrop"
-    >
-      <p class="text-sm mb-2">Drag & drop CSV here</p>
-      <input type="file" accept=".csv" @change="handleFile" />
+      <button
+        class="btn btn-primary w-full"
+        :disabled="!file || uploading"
+        @click="upload"
+      >
+        {{ uploading ? "Uploading..." : "Upload CSV" }}
+      </button>
+
+      <div v-if="result" class="alert alert-success">
+        Imported {{ result.inserted }} rows
+      </div>
     </div>
-
-    <button
-      class="btn btn-primary w-full"
-      :disabled="!file || uploading"
-      @click="upload"
-    >
-      {{ uploading ? "Uploading..." : "Upload CSV" }}
-    </button>
-
-    <div v-if="result" class="alert alert-success">
-      Imported {{ result.inserted }} rows
-    </div>
-  </div>
+  </AppLayout>
 </template>
 
 <script setup>
 import { ref } from "vue"
+import AppLayout from "@/layouts/AppLayout.vue"
 import api from "../api/axios"
 
 const file = ref(null)

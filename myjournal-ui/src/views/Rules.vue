@@ -1,24 +1,25 @@
 <template>
-  <div class="p-4 space-y-4">
-    <h1 class="text-xl font-bold">Category Rules</h1>
+  <AppLayout title="Category Rules" :showBack="true">
+    <div class="space-y-4">
+      <textarea
+        class="textarea textarea-bordered w-full h-[60vh] font-mono text-xs"
+        v-model="text"
+      ></textarea>
 
-    <textarea
-      class="textarea textarea-bordered w-full h-[60vh] font-mono text-xs"
-      v-model="text"
-    ></textarea>
+      <button class="btn btn-primary w-full" @click="save">
+        Save Rules
+      </button>
 
-    <button class="btn btn-primary w-full" @click="save">
-      Save Rules
-    </button>
-
-    <div v-if="saved" class="alert alert-success">
-      Rules updated successfully
+      <div v-if="saved" class="alert alert-success">
+        Rules updated successfully
+      </div>
     </div>
-  </div>
+  </AppLayout>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue"
+import AppLayout from "@/layouts/AppLayout.vue"
 import api from "../api/axios"
 
 const text = ref("")
