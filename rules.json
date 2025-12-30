@@ -1,0 +1,279 @@
+{
+  "version": "1.0",
+  "currency": "CAD",
+  "country_bias": "CANADA",
+
+  "global_rules": {
+    "ignore_amount_below": 5,
+    "refund_as_income": true,
+    "fx_flag": {
+      "enabled": true,
+      "logic": "flag_if_not_canada_keyword"
+    }
+  },
+
+  "classification_defaults": {
+    "debit": "Expense",
+    "credit": "Income",
+    "uncategorized": "Uncategorized – Manual Review"
+  },
+
+  "keywords": {
+    "canada_markers": [
+      "rogers",
+      "bell",
+      "telus",
+      "epcor",
+      "hydro",
+      "enbridge",
+      "td",
+      "rbc",
+      "bmo",
+      "cibc",
+      "scotia",
+      "edmonton",
+      "alberta",
+      "ontario",
+      "canada",
+      "cad"
+    ]
+  },
+
+  "credit_card_payments": {
+    "category": "Credit Card Payment",
+    "business_personal": "Personal",
+    "type": "Transfer",
+    "keywords": [
+      "credit card payment",
+      "visa payment",
+      "mastercard payment",
+      "amex payment",
+      "mastercd",
+      "pcf",
+      "pc financial",
+      "neo",
+      "canadian tire",
+      "bns",
+      "bank of nova scotia",
+      "rbc credit card",
+      "bmo"
+    ]
+  },
+
+  "business_income": {
+    "airbnb": {
+      "category": "Business Income – Airbnb",
+      "type": "Income",
+      "keywords": [
+        "airbnb payout",
+        "airbnb inc",
+        "vrbo payout",
+        "booking.com host",
+        "expedia host"
+      ]
+    },
+    "etransfer_in": {
+      "category": "Business Income – Other",
+      "type": "Income",
+      "keywords": [
+        "etransfer received",
+        "interac e-transfer received"
+      ]
+    }
+  },
+
+  "business_expenses": {
+    "utilities": {
+      "category": "Business Expense – Utilities",
+      "type": "Expense",
+      "always_business": true,
+      "keywords": [
+        "epcor",
+        "hydro",
+        "enbridge",
+        "gas",
+        "water",
+        "electric"
+      ]
+    },
+    "insurance": {
+      "category": "Business Expense – Insurance",
+      "type": "Expense",
+      "keywords": [
+        "insurance"
+      ]
+    },
+    "amazon": {
+      "category": "Business Expense – Supplies / Online",
+      "type": "Expense",
+      "keywords": [
+        "amazon"
+      ]
+    },
+    "property_management": {
+      "category": "Business Expense – Property Management",
+      "type": "Expense",
+      "keywords": [
+        "anjanie",
+        "malek",
+        "hazar",
+        "nina"
+      ]
+    },
+    "condo_fees": {
+      "category": "Business Expense – Condo Fees",
+      "type": "Expense",
+      "keywords": [
+        "jonathan dixon"
+      ]
+    },
+    "etransfer_out": {
+      "category": "Business Expense – E-Transfer",
+      "type": "Expense",
+      "rule": "any_named_etransfer",
+      "keywords": [
+        "etransfer sent",
+        "interac e-transfer sent"
+      ]
+    }
+  },
+
+  "personal_expenses": {
+    "groceries": {
+      "category": "Personal – Groceries",
+      "type": "Expense",
+      "keywords": [
+        "walmart",
+        "costco",
+        "superstore",
+        "no frills",
+        "sobeys",
+        "loblaws",
+        "metro"
+      ]
+    },
+    "dining": {
+      "category": "Personal – Dining",
+      "type": "Expense",
+      "keywords": [
+        "tim hortons",
+        "starbucks",
+        "mcdonalds",
+        "restaurant",
+        "ubereats",
+        "doordash",
+        "skip"
+      ]
+    },
+    "fitness": {
+      "category": "Personal – Fitness",
+      "type": "Expense",
+      "keywords": [
+        "gym",
+        "fitness",
+        "goodlife",
+        "anytime fitness",
+        "planet fitness",
+        "ymca"
+      ]
+    },
+    "transport": {
+      "category": "Personal – Transport",
+      "type": "Expense",
+      "keywords": [
+        "uber",
+        "lyft",
+        "transit",
+        "ttc",
+        "ets",
+        "parking",
+        "petro",
+        "esso",
+        "shell"
+      ]
+    },
+    "services": {
+      "category": "Personal – Services",
+      "type": "Expense",
+      "keywords": [
+        "jain salon",
+        "jainsalon"
+      ]
+    },
+    "cash_withdrawal": {
+      "category": "Cash Withdrawal Expense",
+      "type": "Expense",
+      "keywords": [
+        "cash withdrawal",
+        "atm withdrawal",
+        "cash wd",
+        "atm wd"
+      ]
+    }
+  },
+
+  "investments": {
+    "standard": {
+      "category": "Investments",
+      "type": "Transfer",
+      "keywords": [
+        "wealthsimple",
+        "ws"
+      ]
+    },
+    "crypto": {
+      "category": "Investments – Crypto",
+      "type": "Transfer",
+      "keywords": [
+        "shakepay"
+      ]
+    }
+  },
+
+  "transfers": {
+    "eq_bank": {
+      "category": "Personal – Spending Transfer",
+      "type": "Transfer",
+      "keywords": [
+        "eq bank"
+      ]
+    },
+    "bmo_savings": {
+      "category": "Personal – Spending Transfer",
+      "type": "Transfer",
+      "keywords": [
+        "transfer to bmo"
+      ]
+    }
+  },
+
+  "loans": {
+    "loc_payment": {
+      "category": "Loan / LOC Payment",
+      "type": "Transfer",
+      "keywords": [
+        "loan bank of montreal",
+        "bank of montreal",
+        "simplii"
+      ]
+    },
+    "interest_only": {
+      "category": "Loan Interest Expense",
+      "type": "Expense",
+      "keywords": [
+        "interest charged",
+        "loc interest",
+        "line of credit interest"
+      ]
+    }
+  },
+
+  "manual_review": {
+    "mortgage": {
+      "category": "Uncategorized – Manual Review",
+      "keywords": [
+        "mortgage"
+      ]
+    }
+  }
+}

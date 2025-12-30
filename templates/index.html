@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyJournal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .module {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+            border-radius: 5px;
+        }
+        .endpoints {
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        code {
+            background: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📓 MyJournal</h1>
+        <p>Welcome to your personal journal and productivity application.</p>
+        
+        <div class="module">
+            <h2>📊 Finance Module</h2>
+            <p>Track expenses, income, and budgets.</p>
+            <div class="endpoints">
+                <strong>API Endpoints:</strong><br>
+                • <code>GET /api/finance/</code> - Module home<br>
+                • <code>GET /api/finance/transactions</code> - Get transactions<br>
+                • <code>POST /api/finance/transactions</code> - Add transaction
+            </div>
+        </div>
+        
+        <div class="module">
+            <h2>📚 PMP Module</h2>
+            <p>PMP exam preparation and practice questions.</p>
+            <div class="endpoints">
+                <strong>API Endpoints:</strong><br>
+                • <code>GET /api/pmp/</code> - Module home<br>
+                • <code>GET /api/pmp/questions</code> - Get questions<br>
+                • <code>POST /api/pmp/answer</code> - Submit answer
+            </div>
+        </div>
+        
+        <div class="module">
+            <h2>🌐 Language Module</h2>
+            <p>Language learning and vocabulary practice.</p>
+            <div class="endpoints">
+                <strong>API Endpoints:</strong><br>
+                • <code>GET /api/language/</code> - Module home<br>
+                • <code>GET /api/language/words</code> - Get words<br>
+                • <code>POST /api/language/add-word</code> - Add word
+            </div>
+        </div>
+        
+        <div class="module">
+            <h2>💭 Quotes Module</h2>
+            <p>Inspirational quotes collection.</p>
+            <div class="endpoints">
+                <strong>API Endpoints:</strong><br>
+                • <code>GET /api/quotes/</code> - Module home<br>
+                • <code>GET /api/quotes/random</code> - Random quote<br>
+                • <code>GET /api/quotes/daily</code> - Daily quote
+            </div>
+        </div>
+        
+        <div class="module">
+            <h2>🔧 System Information</h2>
+            <p><strong>Health Check:</strong> <a href="/api/health">/api/health</a></p>
+            <p><strong>API Documentation:</strong> <a href="/docs">/docs</a> (Swagger UI)</p>
+            <p><strong>Alternative Docs:</strong> <a href="/redoc">/redoc</a> (ReDoc)</p>
+            <p><strong>Test Login:</strong> username: <code>sachin</code>, password: <code>Welcome@2026!</code></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<h2>Transactions</h2>
+<table border="1">
+  <tr>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Category</th>
+  </tr>
+  {% for t in transactions %}
+  <tr>
+    <td>{{ t.transaction_date }}</td>
+    <td>{{ t.description }}</td>
+    <td>{{ t.amount }}</td>
+    <td>{{ t.auto_category or "-" }}</td>
+  </tr>
+  {% endfor %}
+</table>
