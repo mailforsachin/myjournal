@@ -103,3 +103,7 @@ web/assets/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+venv/
+__pycache__/
+*.pyc
+*.pyo
