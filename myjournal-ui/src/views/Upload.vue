@@ -24,6 +24,7 @@
 <script setup>
 import { ref } from "vue"
 import api from "@/services/api"
+import AppLayout from "@/layouts/AppLayout.vue"
 
 const file = ref(null)
 const dragging = ref(false)
