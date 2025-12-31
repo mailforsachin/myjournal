@@ -30,7 +30,7 @@
 <script setup>
 import { ref } from "vue"
 import AppLayout from "@/layouts/AppLayout.vue"
-import api from "../api/axios"
+import api from "@/services/api"
 
 const file = ref(null)
 const dragging = ref(false)

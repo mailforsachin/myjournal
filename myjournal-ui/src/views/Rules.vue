@@ -20,7 +20,7 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import AppLayout from "@/layouts/AppLayout.vue"
-import api from "../api/axios"
+import api from "@/services/api"
 
 const text = ref("")
 const saved = ref(false)
