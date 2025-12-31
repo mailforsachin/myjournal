@@ -1,69 +1,62 @@
 <template>
-  <AppLayout title="Transactions">
-    <!-- Filters -->
-    <div class="flex gap-2 mb-4">
-      <button
-        v-for="t in filters"
-        :key="t.value"
-        class="btn btn-xs"
-        :class="activeType === t.value ? 'btn-primary' : 'btn-outline'"
-        @click="applyFilter(t.value)"
+  <!-- Filters -->
+  <div class="flex gap-2 mb-4">
+    <button
+      v-for="t in filters"
+      :key="t.value"
+      class="btn btn-xs"
+      :class="activeType === t.value ? 'btn-primary' : 'btn-outline'"
+      @click="applyFilter(t.value)"
+    >
+      {{ t.label }}
+    </button>
+  </div>
+
+  <!-- List -->
+  <div class="card bg-base-100">
+    <div class="card-body p-0">
+      <div
+        v-for="txn in transactions"
+        :key="txn.id"
+        class="flex justify-between p-4 border-b"
       >
-        {{ t.label }}
-      </button>
-    </div>
+        <div>
+          <div class="font-medium text-sm">{{ txn.description }}</div>
+          <div class="text-xs opacity-60">
+            {{ txn.manual_category || txn.auto_category || "Uncategorized" }}
+          </div>
+        </div>
 
-    <!-- Transaction List -->
-    <div class="card bg-base-100">
-      <div class="card-body p-0">
-        <div
-          v-for="txn in transactions"
-          :key="txn.id"
-          class="flex justify-between items-center p-4 border-b"
-        >
-          <div>
-            <div class="font-medium text-sm">{{ txn.description }}</div>
-            <div class="text-xs opacity-60">
-              {{ txn.manual_category || txn.auto_category || "Uncategorized" }}
-            </div>
+        <div class="text-right">
+          <div
+            class="font-semibold"
+            :class="txn.amount < 0 ? 'text-error' : 'text-success'"
+          >
+            {{ txn.amount }}
           </div>
 
-          <div class="text-right">
-            <div
-              class="font-semibold"
-              :class="txn.amount < 0 ? 'text-error' : 'text-success'"
-            >
-              {{ txn.amount }}
-            </div>
-
-            <label class="label cursor-pointer">
-              <span class="text-xs">✔</span>
-              <input
-                type="checkbox"
-                class="checkbox checkbox-xs ml-1"
-                v-model="txn.confirmed"
-                @change="toggleConfirm(txn)"
-              />
-            </label>
-          </div>
+          <input
+            type="checkbox"
+            class="checkbox checkbox-xs"
+            v-model="txn.confirmed"
+            @change="toggleConfirm(txn)"
+          />
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Load More -->
-    <button
-      v-if="hasMore"
-      class="btn btn-sm btn-outline w-full mt-4"
-      @click="loadMore"
-    >
-      Load more
-    </button>
-  </AppLayout>
+  <button
+    v-if="hasMore"
+    class="btn btn-outline btn-sm w-full mt-4"
+    @click="loadMore"
+  >
+    Load more
+  </button>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue"
-import AppLayout from "@/layouts/AppLayout.vue"
 import api from "@/services/api"
 
 const transactions = ref([])
@@ -85,10 +78,7 @@ async function fetchTransactions(reset = false) {
     hasMore.value = true
   }
 
-  const params = {
-    page: page.value,
-    limit: 10,
-  }
+  const params = { page: page.value, limit: 10 }
   if (activeType.value) params.type = activeType.value
 
   const res = await api.get("/finance/transactions", { params })

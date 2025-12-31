@@ -1,16 +1,53 @@
-import axios from "axios"
+import axios from 'axios'
+import { useAuthStore } from '../stores/auth'
 
+// Axios instance
 const api = axios.create({
-  baseURL: "https://myjournal.omchat.ovh/api",
+  baseURL: '/api',          // Nginx will proxy this
+  timeout: 15000,
+  withCredentials: false,
 })
 
-// Attach JWT automatically
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token")
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
+// REQUEST interceptor
+api.interceptors.request.use(
+  (config) => {
+    try {
+      const auth = useAuthStore()
+      if (auth?.token) {
+        config.headers.Authorization = `Bearer ${auth.token}`
+      }
+    } catch (e) {
+      // Pinia not ready yet (initial load) — safe to ignore
+    }
+    return config
+  },
+  (error) => Promise.reject(error)
+)
+
+// RESPONSE interceptor
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    // Network / backend down
+    if (!error.response) {
+      console.error('[API] Network error:', error.message)
+      return Promise.reject(error)
+    }
+
+    // Unauthorized → logout once
+    if (error.response.status === 401) {
+      try {
+        const auth = useAuthStore()
+        auth.logout()
+      } catch (e) {}
+
+      if (!window.location.pathname.startsWith('/login')) {
+        window.location.replace('/login')
+      }
+    }
+
+    return Promise.reject(error)
   }
-  return config
-})
+)
 
 export default api

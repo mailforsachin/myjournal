@@ -4,12 +4,23 @@ import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   plugins: [vue()],
+
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
+
+  // 🔑 THIS IS THE MISSING PIECE
+  assetsInclude: ['**/*.csv'],
+
   server: {
-    host: true
-  }
+    host: true,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8011',
+        changeOrigin: true,
+      },
+    },
+  },
 })

@@ -1,0 +1,504 @@
+<template>
+  <AppLayout title="Daily Quotes" :showBack="true">
+    <!-- Daily Quote -->
+    <div class="card shadow-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 mb-6">
+      <div class="card-body">
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h2 class="font-bold text-xl text-base-content">Quote of the Day</h2>
+            <p class="text-sm text-base-content/70">{{ formatDate(new Date()) }}</p>
+          </div>
+          <div class="badge badge-primary badge-lg">
+            Daily
+          </div>
+        </div>
+
+        <div class="prose max-w-none">
+          <blockquote class="text-2xl italic border-l-4 border-primary pl-4 py-2">
+            "{{ dailyQuote.quote }}"
+          </blockquote>
+          <div class="mt-4 text-right">
+            <p class="text-lg font-semibold">— {{ dailyQuote.author }}</p>
+            <p class="text-sm text-base-content/70">{{ getCategoryLabel(dailyQuote.category) }}</p>
+          </div>
+        </div>
+
+        <div class="flex gap-2 mt-6">
+          <button @click="saveQuote(dailyQuote)" class="btn btn-ghost btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+            </svg>
+            Save
+          </button>
+          <button @click="shareQuote(dailyQuote)" class="btn btn-ghost btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+            Share
+          </button>
+          <button @click="getRandomQuote" class="btn btn-ghost btn-sm ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            New Quote
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote Actions -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <button @click="getRandomQuote" class="btn btn-outline btn-lg border-2 hover:btn-primary transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        Random Inspiration
+      </button>
+
+      <button @click="showAddQuote = true" class="btn btn-primary btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        Add Your Quote
+      </button>
+    </div>
+
+    <!-- Browse Quotes -->
+    <div class="card shadow-lg border border-base-300 mb-6">
+      <div class="card-body">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-bold text-xl text-base-content">Browse Quotes</h2>
+          <div class="text-sm text-base-content/70">
+            {{ filteredQuotes.length }} quotes
+          </div>
+        </div>
+
+        <!-- Filter -->
+        <div class="flex flex-wrap gap-2 mb-4">
+          <button 
+            v-for="category in categories" 
+            :key="category"
+            @click="toggleCategory(category)"
+            class="btn btn-sm"
+            :class="selectedCategories.includes(category) ? 'btn-primary' : 'btn-ghost'"
+          >
+            {{ getCategoryLabel(category) }}
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div
+            v-for="quote in filteredQuotes"
+            :key="quote.id"
+            class="card bg-base-200 border border-base-300 hover:border-primary/50 transition-colors"
+          >
+            <div class="card-body">
+              <blockquote class="italic text-sm line-clamp-3">
+                "{{ quote.quote.length > 100 ? quote.quote.substring(0, 100) + '...' : quote.quote }}"
+              </blockquote>
+              <div class="mt-3">
+                <p class="font-medium text-xs">{{ quote.author }}</p>
+                <div class="flex justify-between items-center mt-1">
+                  <span class="text-xs text-base-content/70">{{ getCategoryLabel(quote.category) }}</span>
+                  <div class="flex gap-1">
+                    <button @click="viewQuote(quote)" class="btn btn-ghost btn-xs">
+                      View
+                    </button>
+                    <button @click="saveQuote(quote)" class="btn btn-ghost btn-xs">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="filteredQuotes.length === 0" class="col-span-full text-center py-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-base-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <p class="text-base-content/60 mt-2">No quotes match your filters</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Saved Quotes -->
+    <div class="card shadow-lg border border-base-300">
+      <div class="card-body">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-bold text-xl text-base-content">Saved Quotes</h2>
+          <div class="text-sm text-base-content/70">
+            {{ savedQuotes.length }} saved
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div
+            v-for="quote in savedQuotes"
+            :key="quote.id"
+            class="card bg-base-100 border border-base-300 hover:border-primary/50 transition-colors"
+          >
+            <div class="card-body">
+              <blockquote class="italic text-sm">
+                "{{ quote.quote.length > 100 ? quote.quote.substring(0, 100) + '...' : quote.quote }}"
+              </blockquote>
+              <div class="mt-3">
+                <p class="font-medium text-xs">{{ quote.author }}</p>
+                <p class="text-xs text-base-content/70">{{ formatDate(quote.savedDate) }}</p>
+              </div>
+              <div class="card-actions justify-end mt-2">
+                <button @click="viewQuote(quote)" class="btn btn-ghost btn-xs">
+                  View
+                </button>
+                <button @click="removeQuote(quote.id)" class="btn btn-ghost btn-xs text-error">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="savedQuotes.length === 0" class="col-span-full text-center py-8">
+            <p class="text-base-content/60">No saved quotes yet. Click "Save" on any quote to add it here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Quote Modal -->
+    <div v-if="showAddQuote" class="modal modal-open">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg mb-4">Add New Quote</h3>
+
+        <div class="space-y-4">
+          <div>
+            <label class="label">
+              <span class="label-text">Quote Text</span>
+            </label>
+            <textarea
+              v-model="newQuote.text"
+              class="textarea textarea-bordered w-full h-32"
+              placeholder="Enter the quote"
+            ></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="label">
+                <span class="label-text">Author</span>
+              </label>
+              <input v-model="newQuote.author" class="input input-bordered w-full" placeholder="Author name" />
+            </div>
+
+            <div>
+              <label class="label">
+                <span class="label-text">Category</span>
+              </label>
+              <select v-model="newQuote.category" class="select select-bordered w-full">
+                <option value="love">Love</option>
+                <option value="inspirational">Inspirational</option>
+                <option value="life">Life</option>
+                <option value="humor">Humor</option>
+                <option value="philosophy">Philosophy</option>
+                <option value="motivation">Motivation</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-action">
+          <button @click="showAddQuote = false" class="btn btn-ghost">Cancel</button>
+          <button @click="saveNewQuote" class="btn btn-primary" :disabled="!newQuote.text || !newQuote.author">
+            Save Quote
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Quote Modal -->
+    <div v-if="showViewQuote" class="modal modal-open">
+      <div class="modal-box max-w-2xl">
+        <div class="flex justify-between items-start mb-6">
+          <div>
+            <div class="badge" :class="getCategoryBadgeClass(viewingQuote.category)">
+              {{ getCategoryLabel(viewingQuote.category) }}
+            </div>
+            <p class="text-sm text-base-content/70 mt-1" v-if="viewingQuote.savedDate">
+              Saved {{ formatDate(viewingQuote.savedDate) }}
+            </p>
+          </div>
+          <button @click="showViewQuote = false" class="btn btn-ghost btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="prose max-w-none">
+          <blockquote class="text-2xl italic border-l-4 border-primary pl-4 py-2">
+            "{{ viewingQuote.quote }}"
+          </blockquote>
+          <div class="mt-6 text-right">
+            <p class="text-xl font-semibold">— {{ viewingQuote.author }}</p>
+          </div>
+        </div>
+
+        <div class="flex gap-2 mt-8">
+          <button @click="shareQuote(viewingQuote)" class="btn btn-outline">
+            Share
+          </button>
+          <button @click="removeQuote(viewingQuote.id)" v-if="viewingQuote.savedDate" class="btn btn-error">
+            Remove
+          </button>
+          <button @click="saveQuote(viewingQuote)" v-else class="btn btn-primary">
+            Save Quote
+          </button>
+        </div>
+      </div>
+    </div>
+  </AppLayout>
+</template>
+
+<script setup>
+import { ref, onMounted, computed } from "vue"
+import AppLayout from "@/layouts/AppLayout.vue"
+import quotesData from "@/data/quotes.csv?raw"
+
+const quotes = ref([])
+const savedQuotes = ref([])
+const dailyQuote = ref({})
+const showAddQuote = ref(false)
+const showViewQuote = ref(false)
+const viewingQuote = ref({})
+const selectedCategories = ref([])
+
+const newQuote = ref({
+  text: "",
+  author: "",
+  category: "love"
+})
+
+// Parse CSV data
+const parseCSV = (csvText) => {
+  const lines = csvText.split('\n')
+  const headers = lines[0].split(',')
+  const result = []
+  
+  const MAX_QUOTES = 100
+
+  for (let i = 1; i < lines.length && result.length < MAX_QUOTES; i++) {
+    if (!lines[i].trim()) continue
+    
+    const obj = {}
+    let currentLine = lines[i]
+    let insideQuotes = false
+    let field = ''
+    let fields = []
+    let fieldIndex = 0
+    
+    for (let char of currentLine) {
+      if (char === '"') {
+        insideQuotes = !insideQuotes
+      } else if (char === ',' && !insideQuotes) {
+        fields.push(field)
+        field = ''
+        fieldIndex++
+      } else {
+        field += char
+      }
+    }
+    fields.push(field) // Add last field
+    
+    for (let j = 0; j < headers.length && j < fields.length; j++) {
+      obj[headers[j].trim()] = fields[j]?.trim() || ''
+    }
+    
+    if (obj.quote && obj.author) {
+      result.push({
+        id: i,
+        quote: obj.quote.replace(/^"|"$/g, ''),
+        author: obj.author,
+        category: obj.category?.split(',')[0]?.trim() || 'love'
+      })
+    }
+  }
+  
+  return result
+}
+
+// Get unique categories
+const categories = computed(() => {
+  const cats = new Set()
+  quotes.value.forEach(q => {
+    if (q.category) cats.add(q.category)
+  })
+  return Array.from(cats)
+})
+
+// Filter quotes by selected categories
+const filteredQuotes = computed(() => {
+  if (selectedCategories.value.length === 0) {
+    return quotes.value.slice(0, 30) // Limit to 30 for performance
+  }
+  return quotes.value.filter(q => 
+    selectedCategories.value.includes(q.category)
+  ).slice(0, 30)
+})
+
+const formatDate = (dateString) => {
+  if (!dateString) return ""
+  const date = new Date(dateString)
+  return date.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
+
+const getCategoryLabel = (category) => {
+  const labels = {
+    'love': 'Love',
+    'inspirational': 'Inspirational',
+    'life': 'Life',
+    'humor': 'Humor',
+    'philosophy': 'Philosophy',
+    'motivation': 'Motivation',
+    'attributed-no-source': 'Unknown Source',
+    'friendship': 'Friendship',
+    'poetry': 'Poetry'
+  }
+  return labels[category] || category || 'General'
+}
+
+const getCategoryBadgeClass = (category) => {
+  const classes = {
+    'love': 'badge-primary',
+    'inspirational': 'badge-secondary',
+    'life': 'badge-accent',
+    'humor': 'badge-warning',
+    'philosophy': 'badge-info',
+    'motivation': 'badge-success'
+  }
+  return classes[category] || 'badge-neutral'
+}
+
+const toggleCategory = (category) => {
+  const index = selectedCategories.value.indexOf(category)
+  if (index === -1) {
+    selectedCategories.value.push(category)
+  } else {
+    selectedCategories.value.splice(index, 1)
+  }
+}
+
+const loadQuotes = () => {
+  try {
+    quotes.value = parseCSV(quotesData)
+    
+    // Set daily quote (use a deterministic one based on date)
+    const today = new Date()
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24)
+    const quoteIndex = dayOfYear % quotes.value.length
+    dailyQuote.value = quotes.value[quoteIndex] || quotes.value[0] || {}
+    
+  } catch (error) {
+    console.error("Failed to load quotes:", error)
+    quotes.value = []
+    dailyQuote.value = {
+      quote: "The only way to do great work is to love what you do.",
+      author: "Steve Jobs",
+      category: "inspirational"
+    }
+  }
+}
+
+const getRandomQuote = () => {
+  if (quotes.value.length > 0) {
+    const randomIndex = Math.floor(Math.random() * quotes.value.length)
+    dailyQuote.value = quotes.value[randomIndex]
+  }
+}
+
+const loadSavedQuotes = () => {
+  try {
+    const saved = localStorage.getItem('savedQuotes')
+    if (saved) {
+      savedQuotes.value = JSON.parse(saved)
+    }
+  } catch (error) {
+    console.error("Failed to load saved quotes:", error)
+    savedQuotes.value = []
+  }
+}
+
+const saveQuote = (quote) => {
+  const quoteToSave = {
+    ...quote,
+    id: Date.now(),
+    savedDate: new Date().toISOString()
+  }
+
+  savedQuotes.value.unshift(quoteToSave)
+  localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes.value))
+
+  // Show success feedback
+  alert("Quote saved!")
+}
+
+const saveNewQuote = () => {
+  const quoteToSave = {
+    id: Date.now(),
+    quote: newQuote.value.text,
+    author: newQuote.value.author,
+    category: newQuote.value.category,
+    savedDate: new Date().toISOString()
+  }
+
+  // Add to saved quotes
+  savedQuotes.value.unshift(quoteToSave)
+  localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes.value))
+
+  showAddQuote.value = false
+  newQuote.value = { text: "", author: "", category: "love" }
+
+  alert("Quote added successfully!")
+}
+
+const viewQuote = (quote) => {
+  viewingQuote.value = quote
+  showViewQuote.value = true
+}
+
+const removeQuote = (quoteId) => {
+  if (confirm("Are you sure you want to remove this quote?")) {
+    savedQuotes.value = savedQuotes.value.filter(q => q.id !== quoteId)
+    localStorage.setItem('savedQuotes', JSON.stringify(savedQuotes.value))
+
+    if (viewingQuote.value.id === quoteId) {
+      showViewQuote.value = false
+    }
+  }
+}
+
+const shareQuote = (quote) => {
+  const text = `"${quote.quote}" — ${quote.author}`
+
+  if (navigator.share) {
+    navigator.share({
+      title: 'Inspiring Quote',
+      text: text,
+      url: window.location.href
+    })
+  } else {
+    // Fallback: copy to clipboard
+    navigator.clipboard.writeText(text)
+    alert("Quote copied to clipboard!")
+  }
+}
+
+onMounted(() => {
+  loadQuotes()
+  loadSavedQuotes()
+})
+</script>

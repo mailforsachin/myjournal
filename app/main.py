@@ -9,50 +9,7 @@ import uvicorn
 import time
 from datetime import datetime
 from app.database import get_db
-from app.auth.jwt import create_access_token
 from pydantic import BaseModel
-
-class LoginRequest(BaseModel):
-    username: str
-    password: str
-
-# Import routers
-try:
-    from app.finance.router import router as finance_router
-except ImportError:
-    # Create dummy router if import fails
-    from fastapi import APIRouter
-    finance_router = APIRouter()
-    @finance_router.get("/")
-    async def dummy():
-        return {"message": "Finance module not fully implemented"}
-
-try:
-    from app.pmp.router import router as pmp_router
-except ImportError:
-    from fastapi import APIRouter
-    pmp_router = APIRouter()
-    @pmp_router.get("/")
-    async def dummy():
-        return {"message": "PMP module not fully implemented"}
-
-try:
-    from app.language.router import router as language_router
-except ImportError:
-    from fastapi import APIRouter
-    language_router = APIRouter()
-    @language_router.get("/")
-    async def dummy():
-        return {"message": "Language module not fully implemented"}
-
-try:
-    from app.quotes.router import router as quotes_router
-except ImportError:
-    from fastapi import APIRouter
-    quotes_router = APIRouter()
-    @quotes_router.get("/")
-    async def dummy():
-        return {"message": "Quotes module not fully implemented"}
 
 app = FastAPI(title="MyJournal", version="1.0")
 
@@ -81,12 +38,59 @@ else:
     print("⚠️  Templates directory not found: templates")
     templates = None
 
-# Include routers
-app.include_router(finance_router, prefix="/api/finance", tags=["finance"])
-app.include_router(pmp_router, prefix="/api/pmp", tags=["pmp"])
-app.include_router(language_router, prefix="/api/language", tags=["language"])
-app.include_router(quotes_router, prefix="/api/quotes", tags=["quotes"])
-app.include_router(system_router, prefix="/api/system", tags=["system"])
+# Import and include routers with error handling
+print("Loading routers...")
+
+# 1. Auth router
+try:
+    from app.auth.router import router as auth_router
+    app.include_router(auth_router, prefix="/api", tags=["auth"])
+    print("✅ Auth router loaded")
+except ImportError as e:
+    print(f"❌ Auth router failed: {e}")
+    from fastapi import APIRouter
+    auth_router = APIRouter()
+    app.include_router(auth_router, prefix="/api")
+
+# 2. Finance router
+try:
+    from app.finance.router import router as finance_router
+    app.include_router(finance_router, prefix="/api/finance", tags=["finance"])
+    print("✅ Finance router loaded")
+except ImportError as e:
+    print(f"❌ Finance router failed: {e}")
+
+# 3. Language router
+try:
+    from app.language.router import router as language_router
+    app.include_router(language_router, prefix="/api/language", tags=["language"])
+    print("✅ Language router loaded")
+except ImportError as e:
+    print(f"❌ Language router failed: {e}")
+
+# 4. PMP router
+try:
+    from app.pmp.router import router as pmp_router
+    app.include_router(pmp_router, prefix="/api/pmp", tags=["pmp"])
+    print("✅ PMP router loaded")
+except ImportError as e:
+    print(f"❌ PMP router failed: {e}")
+
+# 5. Quotes router
+try:
+    from app.quotes.router import router as quotes_router
+    app.include_router(quotes_router, prefix="/api/quotes", tags=["quotes"])
+    print("✅ Quotes router loaded")
+except ImportError as e:
+    print(f"❌ Quotes router failed: {e}")
+
+# 6. System router
+try:
+    from app.system.router import router as system_router
+    app.include_router(system_router, prefix="/api/system", tags=["system"])
+    print("✅ System router loaded")
+except ImportError as e:
+    print(f"❌ System router failed: {e}")
 
 # Health check endpoint
 @app.get("/api/health")
@@ -105,17 +109,27 @@ async def home(request: Request):
                 <h1>MyJournal</h1>
                 <p>Welcome to MyJournal API!</p>
                 <p>API is running. Access documentation at <a href="/docs">/docs</a></p>
-                <p>Test login: username: sachin, password: ~~</p>
+                <p><a href="/transactions-ui">View Transactions UI</a></p>
             </body>
         </html>
         """)
 
-# Simple login endpoint
+# Keep the existing login endpoint for backward compatibility
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
 @app.post("/api/login")
-async def login(data: LoginRequest):
-    if data.username == "sachin" and data.password == "Welcome@2026!":
-        token = create_access_token(1)
-        return {"access_token": token, "token_type": "bearer"}
+async def legacy_login(data: LoginRequest):
+    """Legacy login endpoint for backward compatibility"""
+    try:
+        from app.auth.jwt import create_access_token
+        # Hardcoded auth
+        if data.username == "sachin" and data.password == "Welcome@2026!":
+            token = create_access_token(1)
+            return {"access_token": token, "token_type": "bearer"}
+    except:
+        pass
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
 # Test database connection
@@ -126,6 +140,7 @@ async def test_db():
     cursor.execute("SELECT 1")
     return {"ok": True}
 
+# Request logging middleware
 @app.middleware("http")
 async def request_logger(request: Request, call_next):
     start = time.time()
@@ -136,14 +151,13 @@ async def request_logger(request: Request, call_next):
         "time": datetime.utcnow().isoformat(),
         "method": request.method,
         "path": request.url.path,
-        "ip": request.client.host if request.client else None,
         "status": response.status_code,
         "duration_ms": duration,
-        "user_agent": request.headers.get("user-agent")
     })
 
     return response
 
+# Transactions UI endpoint
 @app.get("/transactions-ui", response_class=HTMLResponse)
 async def transactions_ui(request: Request):
     conn = get_db()
@@ -154,11 +168,13 @@ async def transactions_ui(request: Request):
     rows = cursor.fetchall()
     cursor.close()
     conn.close()
-    return templates.TemplateResponse(
-        "transactions.html",
-        {"request": request, "transactions": rows}
-    )
-
+    if templates:
+        return templates.TemplateResponse(
+            "transactions.html",
+            {"request": request, "transactions": rows}
+        )
+    else:
+        return HTMLResponse(f"<pre>{rows}</pre>")
 
 if __name__ == "__main__":
     uvicorn.run("app.main:app", host="0.0.0.0", port=8011, reload=True)

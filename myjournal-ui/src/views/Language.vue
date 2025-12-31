@@ -1,0 +1,450 @@
+<template>
+  <AppLayout title="Language Learning" :showBack="true">
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <div class="card bg-gradient-to-br from-primary/90 to-primary shadow-lg card-hover">
+        <div class="card-body p-5 text-white">
+          <div class="text-sm opacity-90 font-medium">Words Learned</div>
+          <div class="text-2xl font-bold mt-1">{{ stats.learned || 0 }}</div>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-success/90 to-success shadow-lg card-hover">
+        <div class="card-body p-5 text-white">
+          <div class="text-sm opacity-90 font-medium">Practice Sessions</div>
+          <div class="text-2xl font-bold mt-1">{{ stats.sessions || 0 }}</div>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-warning/90 to-warning shadow-lg card-hover">
+        <div class="card-body p-5 text-white">
+          <div class="text-sm opacity-90 font-medium">Accuracy</div>
+          <div class="text-2xl font-bold mt-1">{{ stats.accuracy || 0 }}%</div>
+        </div>
+      </div>
+
+      <div class="card bg-gradient-to-br from-info/90 to-info shadow-lg card-hover">
+        <div class="card-body p-5 text-white">
+          <div class="text-sm opacity-90 font-medium">Streak</div>
+          <div class="text-2xl font-bold mt-1">{{ stats.streak || 0 }} days</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vocabulary Cards -->
+    <div class="card shadow-lg border border-base-300 mb-6">
+      <div class="card-body">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-bold text-xl text-base-content">Vocabulary Words</h2>
+          <button @click="showAddWord = true" class="btn btn-primary btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            Add Word
+          </button>
+        </div>
+
+        <div v-if="loading" class="text-center py-8">
+          <div class="loading loading-spinner loading-lg text-primary"></div>
+          <p class="mt-4 text-base-content/70">Loading vocabulary...</p>
+        </div>
+
+        <div v-else-if="words.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div
+            v-for="word in words"
+            :key="word.id"
+            class="card bg-base-100 border border-base-300 hover:border-primary/50 transition-all hover:shadow-md cursor-pointer"
+            @click="viewWord(word)"
+          >
+            <div class="card-body p-4">
+              <div class="flex items-start justify-between">
+                <div class="flex-1">
+                  <h3 class="font-bold text-lg mb-2">{{ word.title }}</h3>
+                  <div class="space-y-2">
+                    <div class="flex items-center">
+                      <span class="badge badge-sm badge-outline mr-2">FR</span>
+                      <p class="text-sm">{{ word.fr }}</p>
+                    </div>
+                    <div class="flex items-center">
+                      <span class="badge badge-sm badge-outline mr-2">EN</span>
+                      <p class="text-sm">{{ word.en }}</p>
+                    </div>
+                  </div>
+                </div>
+                <button 
+                  @click.stop="toggleFavorite(word)"
+                  class="btn btn-ghost btn-sm btn-circle"
+                >
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    class="h-5 w-5" 
+                    :class="word.favorite ? 'text-yellow-500 fill-yellow-500' : 'text-base-content/30'"
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                </button>
+              </div>
+              
+              <div class="card-actions justify-end mt-4">
+                <span class="badge" :class="word.difficultyClass || 'badge-info'">
+                  {{ word.difficulty || 'Beginner' }}
+                </span>
+                <span class="text-xs text-base-content/50">
+                  Added {{ formatDate(word.added) }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-else class="text-center py-8">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-base-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+          </svg>
+          <p class="text-base-content/60 mt-2">No vocabulary words yet</p>
+          <button @click="showAddWord = true" class="btn btn-primary mt-4">
+            Add Your First Word
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Quick Practice -->
+      <div class="card shadow-lg border border-base-300">
+        <div class="card-body">
+          <h2 class="font-bold text-xl mb-4">Quick Practice</h2>
+          <p class="text-base-content/70 mb-6">Test your vocabulary knowledge with a quick session</p>
+          
+          <div class="space-y-4">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Number of Questions</span>
+              </label>
+              <select v-model="practiceConfig.count" class="select select-bordered">
+                <option value="5">5 Questions</option>
+                <option value="10">10 Questions</option>
+                <option value="20">20 Questions</option>
+              </select>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Difficulty Level</span>
+              </label>
+              <select v-model="practiceConfig.difficulty" class="select select-bordered">
+                <option value="all">All Levels</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+
+            <button @click="startPractice" class="btn btn-primary btn-lg w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              </svg>
+              Start Practice Session
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="card shadow-lg border border-base-300">
+        <div class="card-body">
+          <h2 class="font-bold text-xl mb-4">Recent Activity</h2>
+          <div class="space-y-3">
+            <div v-for="activity in recentActivity" :key="activity.id" class="flex items-center p-3 rounded-lg bg-base-200">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                   :class="activity.type === 'practice' ? 'bg-success/20 text-success' : 'bg-primary/20 text-primary'">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path v-if="activity.type === 'practice'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div class="flex-1">
+                <p class="font-medium">{{ activity.title }}</p>
+                <p class="text-sm text-base-content/70">{{ formatTime(activity.time) }}</p>
+              </div>
+              <span class="badge" :class="activity.score >= 80 ? 'badge-success' : 'badge-warning'">
+                {{ activity.score }}%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Word Modal -->
+    <div v-if="showAddWord" class="modal modal-open">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg mb-4">Add New Word</h3>
+        
+        <div class="space-y-4">
+          <div>
+            <label class="label">
+              <span class="label-text">Word Title</span>
+            </label>
+            <input v-model="newWord.title" class="input input-bordered w-full" placeholder="Bonjour – Hello" />
+          </div>
+
+          <div>
+            <label class="label">
+              <span class="label-text">French</span>
+            </label>
+            <textarea v-model="newWord.fr" class="textarea textarea-bordered w-full h-20" placeholder="French translation"></textarea>
+          </div>
+
+          <div>
+            <label class="label">
+              <span class="label-text">English</span>
+            </label>
+            <textarea v-model="newWord.en" class="textarea textarea-bordered w-full h-20" placeholder="English translation"></textarea>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="label">
+                <span class="label-text">Difficulty</span>
+              </label>
+              <select v-model="newWord.difficulty" class="select select-bordered w-full">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="label">
+                <span class="label-text">Category</span>
+              </label>
+              <select v-model="newWord.category" class="select select-bordered w-full">
+                <option value="general">General</option>
+                <option value="business">Business</option>
+                <option value="travel">Travel</option>
+                <option value="food">Food</option>
+                <option value="family">Family</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-action">
+          <button @click="showAddWord = false" class="btn btn-ghost">Cancel</button>
+          <button @click="saveNewWord" class="btn btn-primary" :disabled="!newWord.title || !newWord.fr || !newWord.en">
+            Save Word
+          </button>
+        </div>
+      </div>
+    </div>
+  </AppLayout>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue"
+
+import api from "@/services/api"
+
+const stats = ref({
+  learned: 0,
+  sessions: 0,
+  accuracy: 85,
+  streak: 7
+})
+
+const words = ref([])
+const loading = ref(true)
+const showAddWord = ref(false)
+
+const newWord = ref({
+  title: "",
+  fr: "",
+  en: "",
+  difficulty: "beginner",
+  category: "general"
+})
+
+const practiceConfig = ref({
+  count: "10",
+  difficulty: "all"
+})
+
+const recentActivity = ref([
+  { id: 1, type: "practice", title: "Vocabulary Quiz", time: new Date(Date.now() - 3600000), score: 90 },
+  { id: 2, type: "word", title: "Added 'Merci'", time: new Date(Date.now() - 7200000), score: 100 },
+  { id: 3, type: "practice", title: "Flashcards", time: new Date(Date.now() - 86400000), score: 75 },
+])
+
+const loadWords = async () => {
+  try {
+    loading.value = true
+    const response = await api.get("/language/words")
+    if (response.data.words && Array.isArray(response.data.words)) {
+      words.value = response.data.words.map(word => ({
+        ...word,
+        difficultyClass: getDifficultyClass(word.difficulty),
+        added: word.added || new Date().toISOString()
+      }))
+      stats.value.learned = words.value.length
+    }
+  } catch (error) {
+    console.error("Failed to load words:", error)
+    // Load sample words
+    words.value = getSampleWords()
+    stats.value.learned = words.value.length
+  } finally {
+    loading.value = false
+  }
+}
+
+const getSampleWords = () => {
+  return [
+    {
+      id: 1,
+      title: "Bonjour – Hello",
+      fr: "Bonjour, comment allez-vous?",
+      en: "Hello, how are you?",
+      difficulty: "beginner",
+      difficultyClass: "badge-success",
+      favorite: true,
+      added: new Date(Date.now() - 86400000).toISOString()
+    },
+    {
+      id: 2,
+      title: "Merci – Thank you",
+      fr: "Merci beaucoup pour votre aide.",
+      en: "Thank you very much for your help.",
+      difficulty: "beginner",
+      difficultyClass: "badge-success",
+      favorite: false,
+      added: new Date(Date.now() - 172800000).toISOString()
+    },
+    {
+      id: 3,
+      title: "Au revoir – Goodbye",
+      fr: "Au revoir, à bientôt!",
+      en: "Goodbye, see you soon!",
+      difficulty: "beginner",
+      difficultyClass: "badge-success",
+      favorite: true,
+      added: new Date(Date.now() - 259200000).toISOString()
+    }
+  ]
+}
+
+const getDifficultyClass = (difficulty) => {
+  const classes = {
+    'beginner': 'badge-success',
+    'intermediate': 'badge-warning',
+    'advanced': 'badge-error'
+  }
+  return classes[difficulty] || 'badge-info'
+}
+
+const formatDate = (dateString) => {
+  if (!dateString) return "Today"
+  const date = new Date(dateString)
+  const now = new Date()
+  const diffTime = Math.abs(now - date)
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))
+  
+  if (diffDays === 0) return "Today"
+  if (diffDays === 1) return "Yesterday"
+  if (diffDays < 7) return `${diffDays} days ago`
+  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+}
+
+const formatTime = (date) => {
+  if (!date) return ""
+  const now = new Date()
+  const diffTime = Math.abs(now - date)
+  const diffHours = Math.floor(diffTime / (1000 * 60 * 60))
+  
+  if (diffHours === 0) return "Just now"
+  if (diffHours === 1) return "1 hour ago"
+  if (diffHours < 24) return `${diffHours} hours ago`
+  
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))
+  if (diffDays === 1) return "Yesterday"
+  if (diffDays < 7) return `${diffDays} days ago`
+  
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+}
+
+const viewWord = (word) => {
+  alert(`Viewing: ${word.title}\nFrench: ${word.fr}\nEnglish: ${word.en}`)
+}
+
+const toggleFavorite = (word) => {
+  word.favorite = !word.favorite
+  // In a real app, save to backend
+}
+
+const saveNewWord = async () => {
+  try {
+    const wordToSave = {
+      ...newWord.value,
+      id: Date.now(),
+      favorite: false,
+      difficultyClass: getDifficultyClass(newWord.value.difficulty),
+      added: new Date().toISOString()
+    }
+
+    // Save to backend
+    await api.post("/language/add-word", wordToSave)
+
+    // Add to local list
+    words.value.unshift(wordToSave)
+    stats.value.learned++
+
+    // Reset form
+    newWord.value = {
+      title: "",
+      fr: "",
+      en: "",
+      difficulty: "beginner",
+      category: "general"
+    }
+    showAddWord.value = false
+
+    alert("Word added successfully!")
+  } catch (error) {
+    console.error("Failed to save word:", error)
+    // Add locally anyway
+    words.value.unshift({
+      ...newWord.value,
+      id: Date.now(),
+      favorite: false,
+      difficultyClass: getDifficultyClass(newWord.value.difficulty),
+      added: new Date().toISOString()
+    })
+    stats.value.learned++
+
+    newWord.value = {
+      title: "",
+      fr: "",
+      en: "",
+      difficulty: "beginner",
+      category: "general"
+    }
+    showAddWord.value = false
+
+    alert("Word saved locally!")
+  }
+}
+
+const startPractice = () => {
+  alert(`Starting practice session with ${practiceConfig.value.count} questions at ${practiceConfig.value.difficulty} level!`)
+  // In a real app, navigate to practice session
+}
+
+onMounted(async () => {
+  await loadWords()
+})
+</script>

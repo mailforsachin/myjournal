@@ -1,0 +1,1651 @@
+{
+  "pmp_practice_database": {
+    "metadata": {
+      "book_title": "PMP Project Management Professional Practice Tests - Second Edition",
+      "authors": ["Kim Heldman", "Vanina Mangano"],
+      "publication_year": "2021",
+      "total_questions": 150,
+      "domains": ["People", "Process", "Business Environment"],
+      "chapters": [
+        {"number": 1, "title": "People (Domain 1.0)", "questions_count": 150},
+        {"number": 2, "title": "Process (Domain 2.0)", "questions_count": 150},
+        {"number": 3, "title": "Business Environment (Domain 3.0)", "questions_count": 100},
+        {"number": 4, "title": "Full-Length Practice Exam 1", "questions_count": 150},
+        {"number": 5, "title": "Full-Length Practice Exam 2", "questions_count": 150},
+        {"number": 6, "title": "Full-Length Practice Exam 3", "questions_count": 150}
+      ]
+    },
+    
+    "questions": [
+      {
+        "id": "Q1-001",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Stakeholder Identification",
+        "task": "Identify stakeholders",
+        "question_number": 1,
+        "question_text": "Carina is a principal project manager of You've Got Dogs, a specialty company that creates custom dog apparel and toys. Three months into the project, she kicks off the second phase of a project that is developing high-tech dog bones. As part of her practice, she sits down with her sponsor to determine whether there are any new players that they missed in the first phase, and they hold a discussion on the direction of influence of these new stakeholders. What activity is Carina carrying out?\nA. Planning stakeholder engagement\nB. Identifying stakeholders\nC. Planning resource management\nD. Identifying risks",
+        "options": {
+          "A": "Planning stakeholder engagement",
+          "B": "Identifying stakeholders",
+          "C": "Planning resource management",
+          "D": "Identifying risks"
+        },
+        "correct_answer": "B",
+        "explanation": "Carina is identifying new stakeholders in the second phase, which is part of the ongoing stakeholder identification process.",
+        "page_number": 26,
+        "difficulty": "Easy",
+        "keywords": ["stakeholder identification", "project phases", "influence"]
+      },
+      {
+        "id": "Q1-002",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Agile Leadership",
+        "task": "Lead a team",
+        "question_number": 2,
+        "question_text": "Which of the following best describes the servant leadership approach used in Agile projects?\nA. The practice of one individual directing the team to provide clear and concise direction\nB. The practice of generating work through iterations, with one leader clearly prominent\nC. The practice of installing one clear leader, with team members serving as followers\nD. The practice of focusing on understanding and addressing the needs and development of team members",
+        "options": {
+          "A": "The practice of one individual directing the team to provide clear and concise direction",
+          "B": "The practice of generating work through iterations, with one leader clearly prominent",
+          "C": "The practice of installing one clear leader, with team members serving as followers",
+          "D": "The practice of focusing on understanding and addressing the needs and development of team members"
+        },
+        "correct_answer": "D",
+        "explanation": "Servant leadership focuses on serving the team by understanding and addressing their needs and development.",
+        "page_number": 26,
+        "difficulty": "Easy",
+        "keywords": ["servant leadership", "agile", "team development", "leadership styles"]
+      },
+      {
+        "id": "Q1-003",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Problem Solving",
+        "task": "Address and remove impediments",
+        "question_number": 3,
+        "question_text": "Your project has kicked off, and you are beginning a series of overview sessions with key users to determine requirements for a new enterprise resource software implementation. One of your stakeholders is exceptionally contentious and throws obstacles up at every turn. One of the problems she has described does seem to be legitimate. There is an issue with the data from the legacy system that needs to be resolved before moving forward. Which of the following statements is not true regarding this situation?\nA. You should approach this by defining the problem and focusing on separating causes and symptoms.\nB. You should use a two-step process involving problem definition and decision-making.\nC. Your decision-making has a timing element.\nD. Your decision-making involves asking questions to determine whether the issues are internal or external to the project.",
+        "options": {
+          "A": "You should approach this by defining the problem and focusing on separating causes and symptoms.",
+          "B": "You should use a two-step process involving problem definition and decision-making.",
+          "C": "Your decision-making has a timing element.",
+          "D": "Your decision-making involves asking questions to determine whether the issues are internal or external to the project."
+        },
+        "correct_answer": "B",
+        "explanation": "Problem-solving typically involves more than just two steps; it includes problem definition, root cause analysis, solution generation, and decision-making.",
+        "page_number": 26,
+        "difficulty": "Medium",
+        "keywords": ["problem solving", "decision-making", "stakeholder management", "root cause analysis"]
+      },
+      {
+        "id": "Q1-004",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "PMI Talent Triangle",
+        "task": "Lead a team",
+        "question_number": 4,
+        "question_text": "Nancy is a senior systems engineer who loves to work with people and can typically grasp the big picture. Because of her functional knowledge, organized nature, and ease in getting others to follow her lead, her manager decides to move her into a project manager role. Despite all of her strengths, Nancy struggles greatly with her first project. The first major milestone was missed, and the project was already over budget by $20,000. What part of the PMI Talent Triangle™ is Nancy missing?\nA. Technical project management\nB. Leadership\nC. Strategic and business management\nD. Schedule management",
+        "options": {
+          "A": "Technical project management",
+          "B": "Leadership",
+          "C": "Strategic and business management",
+          "D": "Schedule management"
+        },
+        "correct_answer": "A",
+        "explanation": "Technical project management skills include scheduling, budgeting, and other project-specific technical skills that Nancy is lacking.",
+        "page_number": 26,
+        "difficulty": "Medium",
+        "keywords": ["PMI Talent Triangle", "technical project management", "leadership", "project management skills"]
+      },
+      {
+        "id": "Q1-005",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Negotiation",
+        "task": "Negotiate project agreements",
+        "question_number": 5,
+        "question_text": "You are a project manager working on contract. The organization that's contracted with your company is not happy with the progress of the project to date. They claim that an important deliverable was overlooked and that you should halt the project and reassess how to meet this deliverable. You know that the customer has approved all phases of the project to date. Which of the following statements is true?\nA. You and your company might have to use problem-solving techniques such as arbitration and mediation to reach an agreement.\nB. You and your company might have to use communication techniques such as arbitration and mediation to reach an agreement.\nC. You and your company might have to use negotiation techniques such as arbitration and mediation to reach an agreement.\nD. You and your company might have to use influencing techniques such as arbitration and mediation to reach an agreement.",
+        "options": {
+          "A": "You and your company might have to use problem-solving techniques such as arbitration and mediation to reach an agreement.",
+          "B": "You and your company might have to use communication techniques such as arbitration and mediation to reach an agreement.",
+          "C": "You and your company might have to use negotiation techniques such as arbitration and mediation to reach an agreement.",
+          "D": "You and your company might have to use influencing techniques such as arbitration and mediation to reach an agreement."
+        },
+        "correct_answer": "C",
+        "explanation": "Arbitration and mediation are negotiation techniques used to resolve disputes and reach agreements.",
+        "page_number": 27,
+        "difficulty": "Medium",
+        "keywords": ["negotiation", "arbitration", "mediation", "dispute resolution", "contract management"]
+      },
+      {
+        "id": "Q1-006",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Agile Methodology",
+        "task": "Determine appropriate project methodology",
+        "question_number": 6,
+        "question_text": "An Agile approach can alleviate issues that result when high uncertainty exists. Which of the following is an example of a pain point that Agile addresses under these circumstances? (Select three.)\nA. Unclear purpose\nB. Low defects\nC. Unclear requirements\nD. Technical debt",
+        "options": {
+          "A": "Unclear purpose",
+          "B": "Low defects",
+          "C": "Unclear requirements",
+          "D": "Technical debt"
+        },
+        "correct_answer": "ACD",
+        "explanation": "Agile addresses unclear purpose, unclear requirements, and technical debt through iterative development and continuous feedback.",
+        "page_number": 27,
+        "difficulty": "Medium",
+        "keywords": ["agile", "uncertainty", "requirements", "technical debt", "iterative development"]
+      },
+      {
+        "id": "Q1-007",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Resource Management",
+        "task": "Plan and manage budget and resources",
+        "question_number": 7,
+        "question_text": "You're the project manager for Dream Clinics, a research organization that specializes in sleep disorders. You're working on an internal service project and are in the Executing process group. You negotiate with a manager to obtain resources for specific activities on the project that your team is not able to fulfill. These resources will roll off the project as soon as the activities are completed. Which of the following does this scenario describe?\nA. Resource requirements, which are generated when carrying out resource requirement planning activities\nB. Interpersonal and team skills, which are capabilities used by project managers to acquire resources\nC. Staffing requirements, which is information needed when acquiring resources\nD. Resource pool description, which is information needed when planning out resource requirements",
+        "options": {
+          "A": "Resource requirements, which are generated when carrying out resource requirement planning activities",
+          "B": "Interpersonal and team skills, which are capabilities used by project managers to acquire resources",
+          "C": "Staffing requirements, which is information needed when acquiring resources",
+          "D": "Resource pool description, which is information needed when planning out resource requirements"
+        },
+        "correct_answer": "B",
+        "explanation": "The scenario describes using negotiation skills (an interpersonal skill) to acquire resources, which is part of resource management.",
+        "page_number": 27,
+        "difficulty": "Hard",
+        "keywords": ["resource management", "negotiation", "interpersonal skills", "acquire resources"]
+      },
+      {
+        "id": "Q1-008",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure personal integrity",
+        "question_number": 8,
+        "question_text": "Your colleague has reported to their manager that they passed their PMP certification exam. You know this is inaccurate, since you both took your exams at the same time and the colleague shared the results with you. What should you do?\nA. Give them an opportunity to correct their behavior and report them to PMI if they do not.\nB. Don't say anything. Since this is your friend, the code states that you must look out for each other.\nC. Give your friend a difficult time to teach them a lesson and disassociate with them.\nD. Tell their manager immediately and report the violation to PMI directly.",
+        "options": {
+          "A": "Give them an opportunity to correct their behavior and report them to PMI if they do not.",
+          "B": "Don't say anything. Since this is your friend, the code states that you must look out for each other.",
+          "C": "Give your friend a difficult time to teach them a lesson and disassociate with them.",
+          "D": "Tell their manager immediately and report the violation to PMI directly."
+        },
+        "correct_answer": "A",
+        "explanation": "The PMI Code of Ethics recommends giving individuals an opportunity to correct unethical behavior before reporting them.",
+        "page_number": 27,
+        "difficulty": "Medium",
+        "keywords": ["ethics", "PMP certification", "professional conduct", "integrity", "reporting"]
+      },
+      {
+        "id": "Q1-009",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Project Life Cycles",
+        "task": "Determine appropriate project methodology",
+        "question_number": 9,
+        "question_text": "Carina is a principal project manager of You've Got Dogs, a specialty company that creates custom dog apparel and toys. As is part of her practice, she sits down with her sponsor to evaluate how the project is performing. She reviews feedback from the most recent prototype, which the team has produced successively to yield additional insight. Carina notes to the sponsor that the use of timeboxing has been helpful in reducing the uncertainty in the project. What type of life cycle is Carina using?\nA. Predictive\nB. Waterfall\nC. Agile\nD. Iterative",
+        "options": {
+          "A": "Predictive",
+          "B": "Waterfall",
+          "C": "Agile",
+          "D": "Iterative"
+        },
+        "correct_answer": "C",
+        "explanation": "Timeboxing, successive prototyping, and using feedback to reduce uncertainty are characteristics of Agile life cycles.",
+        "page_number": 28,
+        "difficulty": "Medium",
+        "keywords": ["agile", "life cycles", "timeboxing", "prototyping", "iterative development"]
+      },
+      {
+        "id": "Q1-010",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Knowledge Management",
+        "task": "Ensure knowledge transfer",
+        "question_number": 10,
+        "question_text": "Knowledge that is difficult to express is called what?\nA. Explicit knowledge\nB. Tacit knowledge\nC. Tangible knowledge\nD. Formal knowledge",
+        "options": {
+          "A": "Explicit knowledge",
+          "B": "Tacit knowledge",
+          "C": "Tangible knowledge",
+          "D": "Formal knowledge"
+        },
+        "correct_answer": "B",
+        "explanation": "Tacit knowledge is personal, context-specific knowledge that is difficult to formalize, record, or articulate.",
+        "page_number": 28,
+        "difficulty": "Easy",
+        "keywords": ["knowledge management", "tacit knowledge", "explicit knowledge", "knowledge transfer"]
+      },
+      {
+        "id": "Q1-011",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Resolution",
+        "task": "Manage conflict",
+        "question_number": 11,
+        "question_text": "You are working on a project with contentious team members. You know if you resolve the conflicts, it will result in increased productivity and better working relationships. You pull the team together in a meeting to discuss the issue. You allow everyone to express their viewpoint, and as a result, some team members gain an understanding of the perspective of some of their teammates that they didn't have before this meeting. At the conclusion of the meeting, consensus is reached, and the team members thank you for taking the time to get them together and asking them to discuss this issue. Which of the following conflict-resolution techniques does this describe?\nA. Compromise/reconcile\nB. Force/direct\nC. Smooth/accommodate\nD. Collaborate/problem-solve",
+        "options": {
+          "A": "Compromise/reconcile",
+          "B": "Force/direct",
+          "C": "Smooth/accommodate",
+          "D": "Collaborate/problem-solve"
+        },
+        "correct_answer": "D",
+        "explanation": "Collaboration involves working together to find a solution that satisfies all parties, leading to consensus and commitment.",
+        "page_number": 28,
+        "difficulty": "Medium",
+        "keywords": ["conflict resolution", "collaboration", "team building", "consensus"]
+      },
+      {
+        "id": "Q1-012",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Resolution",
+        "task": "Manage conflict",
+        "question_number": 12,
+        "question_text": "Which conflict-resolution technique does not result in a permanent resolution?\nA. Withdraw/avoid\nB. Force/direct\nC. Collaborate/problem-solve\nD. Smooth/accommodate",
+        "options": {
+          "A": "Withdraw/avoid",
+          "B": "Force/direct",
+          "C": "Collaborate/problem-solve",
+          "D": "Smooth/accommodate"
+        },
+        "correct_answer": "D",
+        "explanation": "Smoothing/accommodating emphasizes areas of agreement rather than differences and doesn't address the root cause, so it's temporary.",
+        "page_number": 28,
+        "difficulty": "Medium",
+        "keywords": ["conflict resolution", "smoothing", "accommodating", "temporary solution"]
+      },
+      {
+        "id": "Q1-013",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Development",
+        "task": "Define team ground rules",
+        "question_number": 13,
+        "question_text": "As part of establishing a new project team, a project manager chooses to create an official team charter. What will the project manager likely include within the document? (Select two.)\nA. Team responsibilities\nB. Team assignments\nC. Team values\nD. Decision-making criteria",
+        "options": {
+          "A": "Team responsibilities",
+          "B": "Team assignments",
+          "C": "Team values",
+          "D": "Decision-making criteria"
+        },
+        "correct_answer": "CD",
+        "explanation": "Team charters typically include team values and decision-making criteria to establish team norms and operating procedures.",
+        "page_number": 28,
+        "difficulty": "Medium",
+        "keywords": ["team charter", "team development", "ground rules", "decision-making", "team values"]
+      },
+      {
+        "id": "Q1-014",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Stakeholder Engagement",
+        "task": "Engage stakeholders",
+        "question_number": 14,
+        "question_text": "You are working on a critical project for your organization. The CEO has made it clear this is a top priority. One of the key stakeholders on your project resigned, and her replacement started about three weeks ago. She does not make time for you or seem to have the same level of urgency regarding this project as the CEO. You are concerned with overall project success and want to efficiently manage the processes involved with this project. All of the following are methods referred to within this scenario except for which one?\nA. Meetings\nB. Data analysis\nC. Ground rules\nD. Decision-making",
+        "options": {
+          "A": "Meetings",
+          "B": "Data analysis",
+          "C": "Ground rules",
+          "D": "Decision-making"
+        },
+        "correct_answer": "C",
+        "explanation": "Ground rules are established for the project team, not typically for managing stakeholder engagement processes.",
+        "page_number": 29,
+        "difficulty": "Medium",
+        "keywords": ["stakeholder engagement", "meetings", "data analysis", "decision-making", "ground rules"]
+      },
+      {
+        "id": "Q1-015",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Maintain respect",
+        "question_number": 15,
+        "question_text": "David is a project manager working for a prominent book publishing company. As the most senior project manager within the organization, he often gets paired with strong-willed project sponsors. During a recent project meeting, David's project sponsor began yelling in frustration at the project's status, which was blocked because of a critical resource being out ill. In frustration, the sponsor began spewing profanities at David, questioning his ability to manage effectively. In response, David calmly assured the project sponsor that a contingency plan would be implemented and requested that they speak privately to address his frustrations. David then excused the rest of the project team. What core value did David uphold during the meeting?\nA. Fairness\nB. Honesty\nC. Respect\nD. Responsibility",
+        "options": {
+          "A": "Fairness",
+          "B": "Honesty",
+          "C": "Respect",
+          "D": "Responsibility"
+        },
+        "correct_answer": "C",
+        "explanation": "David demonstrated respect by handling the situation professionally, protecting the team from inappropriate behavior, and addressing the sponsor's concerns privately.",
+        "page_number": 29,
+        "difficulty": "Medium",
+        "keywords": ["respect", "professional conduct", "ethics", "conflict management", "leadership"]
+      },
+      {
+        "id": "Q1-016",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure personal integrity",
+        "question_number": 16,
+        "question_text": "During a project status meeting, you request updates to work tasks. One of your close friends accountable for the most critical milestone on the schedule notes that they are on track. Over wine the previous evening, the friend had confided that the task was two weeks behind schedule. What should you do as the project manager?\nA. Throw your friend under the bus—after all, the wine was cheap and not worth it.\nB. Immediately report the slip, along with the source of your information.\nC. Give your friend an opportunity to report accurate status; if this does not occur, report accurately that a slippage has occurred.\nD. Do nothing. Honoring friendship is far more important, and this is an opportunity to display trust.",
+        "options": {
+          "A": "Throw your friend under the bus—after all, the wine was cheap and not worth it.",
+          "B": "Immediately report the slip, along with the source of your information.",
+          "C": "Give your friend an opportunity to report accurate status; if this does not occur, report accurately that a slippage has occurred.",
+          "D": "Do nothing. Honoring friendship is far more important, and this is an opportunity to display trust."
+        },
+        "correct_answer": "C",
+        "explanation": "Give the friend an opportunity to correct their behavior first, then report accurate information if they don't comply.",
+        "page_number": 29,
+        "difficulty": "Medium",
+        "keywords": ["ethics", "integrity", "status reporting", "professional conduct", "honesty"]
+      },
+      {
+        "id": "Q1-017",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Power and Influence",
+        "task": "Influence stakeholders",
+        "question_number": 17,
+        "question_text": "You are in the process of facilitating a change control meeting. You review a change request that would double the scope of the project but would not yield a major increase in the project's resulting benefits. You know that the submitter of the change request has a tendency to bloat a project's scope without fully thinking through the impact, but as a result of their position in the company, their changes tend to be approved. What type of power does the submitter of the change request typically use?\nA. Legitimate\nB. Expert\nC. Referent\nD. Punishment",
+        "options": {
+          "A": "Legitimate",
+          "B": "Expert",
+          "C": "Referent",
+          "D": "Punishment"
+        },
+        "correct_answer": "A",
+        "explanation": "Legitimate power comes from a person's position or title in the organization.",
+        "page_number": 29,
+        "difficulty": "Medium",
+        "keywords": ["power", "influence", "legitimate power", "change control", "scope management"]
+      },
+      {
+        "id": "Q1-018",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Skill Development",
+        "task": "Ensure team members are adequately trained",
+        "question_number": 18,
+        "question_text": "You are very interested in becoming a project manager. You have mentored with other experienced project managers in your organization to learn more about how to be an effective project manager. You've been told your organizational skills and communication skills are excellent. However, you need some additional training in accounting and budgeting skills, because you are weak in these general management areas. The mentor who was honest enough to tell you this explained it which of the following ways?\nA. You will not be able to sit for the exam unless you get formal training in the general management areas.\nB. General management skills are likely to affect project outcomes. If you lack any of these skills, it could affect your project and your career adversely, so you should get some training in these areas.\nC. The Estimating Costs and Control Costs processes are under the Planning process group, and you will not be able to pass the questions on the PMP exam that pertain to these processes if you don't get some training.\nD. General management skills are important to your project outcomes, and Estimating Costs and Control Costs are two of the most important processes within the Executing phase of a project, so you should get some training in these areas.",
+        "options": {
+          "A": "You will not be able to sit for the exam unless you get formal training in the general management areas.",
+          "B": "General management skills are likely to affect project outcomes. If you lack any of these skills, it could affect your project and your career adversely, so you should get some training in these areas.",
+          "C": "The Estimating Costs and Control Costs processes are under the Planning process group, and you will not be able to pass the questions on the PMP exam that pertain to these processes if you don't get some training.",
+          "D": "General management skills are important to your project outcomes, and Estimating Costs and Control Costs are two of the most important processes within the Executing phase of a project, so you should get some training in these areas."
+        },
+        "correct_answer": "B",
+        "explanation": "General management skills, including accounting and budgeting, are essential for project success and career advancement.",
+        "page_number": 30,
+        "difficulty": "Easy",
+        "keywords": ["skill development", "training", "general management", "budgeting", "career development"]
+      },
+      {
+        "id": "Q1-019",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Agile Methodology",
+        "task": "Determine appropriate project methodology",
+        "question_number": 19,
+        "question_text": "A project manager following an Agile life cycle receives a request from the customer to alter a requirement. How will the project manager likely respond?\nA. Blocks change\nB. Welcomes change\nC. Prevents change\nD. Indifferent about change",
+        "options": {
+          "A": "Blocks change",
+          "B": "Welcomes change",
+          "C": "Prevents change",
+          "D": "Indifferent about change"
+        },
+        "correct_answer": "B",
+        "explanation": "Agile methodologies welcome changing requirements, even late in development.",
+        "page_number": 30,
+        "difficulty": "Easy",
+        "keywords": ["agile", "change management", "requirements", "customer collaboration"]
+      },
+      {
+        "id": "Q1-020",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Resource Management",
+        "task": "Plan and manage budget and resources",
+        "question_number": 20,
+        "question_text": "A project manager presents a summary of project team roles and responsibilities, training needs, and recognition and rewards to the project sponsor for approval. In what activity are they engaged?\nA. Developing the stakeholder engagement plan\nB. Identifying resource risk\nC. Developing the resource management plan\nD. Estimating project costs",
+        "options": {
+          "A": "Developing the stakeholder engagement plan",
+          "B": "Identifying resource risk",
+          "C": "Developing the resource management plan",
+          "D": "Estimating project costs"
+        },
+        "correct_answer": "C",
+        "explanation": "The resource management plan includes roles and responsibilities, training needs, and recognition/rewards.",
+        "page_number": 30,
+        "difficulty": "Medium",
+        "keywords": ["resource management", "resource management plan", "roles and responsibilities", "training", "recognition"]
+      },
+      {
+        "id": "Q1-021",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Cultural Awareness",
+        "task": "Engage and support virtual teams",
+        "question_number": 21,
+        "question_text": "A project manager is preparing to send five engineers to Japan to install a high-security network. The engineers have never been outside of the United States before. Prior to their travel, the project manager asks the Japan-based manager to give the engineers an overview of their history, customs, and social norms. What is the project manager's motive?\nA. To teach the engineers about the Japanese culture\nB. To take a breather after a hard day's work\nC. To ensure the engineers understand how to interact abroad\nD. To prevent culture shock",
+        "options": {
+          "A": "To teach the engineers about the Japanese culture",
+          "B": "To take a breather after a hard day's work",
+          "C": "To ensure the engineers understand how to interact abroad",
+          "D": "To prevent culture shock"
+        },
+        "correct_answer": "D",
+        "explanation": "Providing cultural training helps prevent culture shock and facilitates better interaction with international teams.",
+        "page_number": 30,
+        "difficulty": "Easy",
+        "keywords": ["cultural awareness", "culture shock", "international teams", "diversity", "training"]
+      },
+      {
+        "id": "Q1-022",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Resolution",
+        "task": "Manage conflict",
+        "question_number": 22,
+        "question_text": "Which of the following best describes the directing conflict-resolution technique?\nA. Pushing one's viewpoint at the expense of others\nB. Incorporating multiple viewpoints and insights\nC. Retreating from a potential conflict solution\nD. Searching for solutions that bring some degree of satisfaction",
+        "options": {
+          "A": "Pushing one's viewpoint at the expense of others",
+          "B": "Incorporating multiple viewpoints and insights",
+          "C": "Retreating from a potential conflict solution",
+          "D": "Searching for solutions that bring some degree of satisfaction"
+        },
+        "correct_answer": "A",
+        "explanation": "Directing (or forcing) involves pushing one's viewpoint at the expense of others, often using authority or power.",
+        "page_number": 31,
+        "difficulty": "Easy",
+        "keywords": ["conflict resolution", "directing", "forcing", "power", "authority"]
+      },
+      {
+        "id": "Q1-023",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Cultural Awareness",
+        "task": "Engage and support virtual teams",
+        "question_number": 23,
+        "question_text": "You've just accepted a new project management assignment. The project is for a customer in a foreign country. You've requested a business analyst and two other project team members from the country the customer resides in to participate on your team. The remaining team members are from your country. You know that the best way to ensure that the project team doesn't get bogged down in cultural differences and hold up project progress is to do which of the following?\nA. Perform team-building exercises using videoconferencing to allow team members to get to know each other and get to the performing stage of team development as soon as possible.\nB. Require project team members to read and sign the organization's diversity policy.\nC. Establish your role as project manager as the first order of business and require compliance with company policies.\nD. Provide diversity training for all the team members to make them aware of cultural differences and teach them to function effectively as a team despite these differences.",
+        "options": {
+          "A": "Perform team-building exercises using videoconferencing to allow team members to get to know each other and get to the performing stage of team development as soon as possible.",
+          "B": "Require project team members to read and sign the organization's diversity policy.",
+          "C": "Establish your role as project manager as the first order of business and require compliance with company policies.",
+          "D": "Provide diversity training for all the team members to make them aware of cultural differences and teach them to function effectively as a team despite these differences."
+        },
+        "correct_answer": "D",
+        "explanation": "Diversity training helps team members understand and appreciate cultural differences, enabling effective collaboration.",
+        "page_number": 31,
+        "difficulty": "Medium",
+        "keywords": ["cultural awareness", "diversity training", "international teams", "team development", "cross-cultural"]
+      },
+      {
+        "id": "Q1-024",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Development",
+        "task": "Build a team",
+        "question_number": 24,
+        "question_text": "Carina is a principal project manager of You've Got Dogs, a specialty company that creates custom dog apparel and toys. As part of her latest project, she struggles to rein in the team, who seem to be at each other's throats. She knows everyone has good intentions, but they are not yet open and trusting with each other. What phase of the team development model is the team currently in?\nA. Norming\nB. Performing\nC. Forming\nD. Storming",
+        "options": {
+          "A": "Norming",
+          "B": "Performing",
+          "C": "Forming",
+          "D": "Storming"
+        },
+        "correct_answer": "D",
+        "explanation": "The storming phase is characterized by conflict, lack of trust, and team members challenging each other.",
+        "page_number": 31,
+        "difficulty": "Easy",
+        "keywords": ["team development", "tuckman model", "storming", "team building", "conflict"]
+      },
+      {
+        "id": "Q1-025",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Leadership Theories",
+        "task": "Lead a team",
+        "question_number": 25,
+        "question_text": "Dr. William Ouchi developed a theory that is concerned with increasing employees' loyalty to their organizations and places emphasis on the well-being of the employees, both at work and outside of work. What is the name of this leadership theory?\nA. Theory Y\nB. Theory Z\nC. Theory X\nD. Theory Y/Z",
+        "options": {
+          "A": "Theory Y",
+          "B": "Theory Z",
+          "C": "Theory X",
+          "D": "Theory Y/Z"
+        },
+        "correct_answer": "B",
+        "explanation": "Theory Z, developed by William Ouchi, emphasizes employee loyalty, holistic concern for employees, and collective decision-making.",
+        "page_number": 31,
+        "difficulty": "Medium",
+        "keywords": ["leadership theories", "theory z", "ouchi", "employee loyalty", "management"]
+      },
+      {
+        "id": "Q1-026",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Power and Influence",
+        "task": "Influence stakeholders",
+        "question_number": 26,
+        "question_text": "You are a contract project manager and have entered into the requirements-gathering phase of your project. Two of the departments you're working with on this project have competing interests regarding this project and have done everything they can, including sabotage, to undermine the work so far. To finish up the requirements-gathering phase, you will have to exert some influence. Which of the following statements is true regarding influencing the organization? (Select three.)\nA. Influencing entails the ability to get things done.\nB. Influencing requires an understanding of the formal and informal structures of the organization, including the use of power and politics.\nC. Politics involves getting the people in these two departments to do things they wouldn't otherwise do.\nD. Power entails getting these two departments with competing interests cooperating effectively to achieve the goals of the project.",
+        "options": {
+          "A": "Influencing entails the ability to get things done.",
+          "B": "Influencing requires an understanding of the formal and informal structures of the organization, including the use of power and politics.",
+          "C": "Politics involves getting the people in these two departments to do things they wouldn't otherwise do.",
+          "D": "Power entails getting these two departments with competing interests cooperating effectively to achieve the goals of the project."
+        },
+        "correct_answer": "ABD",
+        "explanation": "Influencing involves getting things done, understanding organizational structures and politics, and using power to achieve cooperation.",
+        "page_number": 32,
+        "difficulty": "Hard",
+        "keywords": ["influence", "power", "politics", "organizational structure", "stakeholder management"]
+      },
+      {
+        "id": "Q1-027",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Leadership Styles",
+        "task": "Lead a team",
+        "question_number": 27,
+        "question_text": "Match the leadership style to its corresponding attributes.",
+        "options": {
+          "A": "Laissez-faire",
+          "B": "Transactional",
+          "C": "Servant leader",
+          "D": "Transformational",
+          "E": "Charismatic"
+        },
+        "correct_answer": "A-4, B-3, C-1, D-5, E-2",
+        "explanation": "Laissez-faire: hands-off approach; Transactional: management by exception; Servant leader: puts others first; Transformational: inspires innovation; Charismatic: high-energy and enthusiastic.",
+        "page_number": 32,
+        "difficulty": "Hard",
+        "keywords": ["leadership styles", "laissez-faire", "transactional", "servant leader", "transformational", "charismatic"]
+      },
+      {
+        "id": "Q1-028",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Servant Leadership",
+        "task": "Empower team members and stakeholders",
+        "question_number": 28,
+        "question_text": "In what ways does the servant leadership approach empower teams? (Select two.)\nA. It provides greater team accountability.\nB. It provides an autocratic approach to decision-making.\nC. It supports the team through a single clear leader.\nD. It supports the team through mentoring and encouragement.",
+        "options": {
+          "A": "It provides greater team accountability.",
+          "B": "It provides an autocratic approach to decision-making.",
+          "C": "It supports the team through a single clear leader.",
+          "D": "It supports the team through mentoring and encouragement."
+        },
+        "correct_answer": "AD",
+        "explanation": "Servant leadership empowers teams through greater accountability and supportive mentoring/encouragement rather than autocratic control.",
+        "page_number": 32,
+        "difficulty": "Medium",
+        "keywords": ["servant leadership", "empowerment", "accountability", "mentoring", "team development"]
+      },
+      {
+        "id": "Q1-029",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Development",
+        "task": "Support team performance",
+        "question_number": 29,
+        "question_text": "You are the project manager for a large project. The initial project schedule shows the project takes approximately three years to complete. Some of the stakeholders have changed over the course of this project, and new stakeholders will become involved toward the end of the project. The project team members have also changed as the project has evolved into a new set of deliverables. You are having a difficult time motivating the new team members. The techniques you used with the previous team don't seem to be working with this team. More resources will be brought on and off the project team at various stages throughout the life cycle, so you'd like to resolve this problem soon. You know from studying the Project Resource Management Knowledge Area that you should do which of the following?\nA. The processes in this Knowledge Area ensure that the human and material resources involved on the project are used in the most effective way possible.\nB. The same communication style should be used throughout the life of the project.\nC. You will change the techniques used to motivate, lead, and coach the human resources involved on the project as the project progresses.\nD. This Knowledge Area's processes include Acquire Resources, Develop Team, and Manage Team.",
+        "options": {
+          "A": "The processes in this Knowledge Area ensure that the human and material resources involved on the project are used in the most effective way possible.",
+          "B": "The same communication style should be used throughout the life of the project.",
+          "C": "You will change the techniques used to motivate, lead, and coach the human resources involved on the project as the project progresses.",
+          "D": "This Knowledge Area's processes include Acquire Resources, Develop Team, and Manage Team."
+        },
+        "correct_answer": "C",
+        "explanation": "Motivation, leadership, and coaching techniques should be adapted as the project progresses and team composition changes.",
+        "page_number": 32,
+        "difficulty": "Medium",
+        "keywords": ["team development", "motivation", "leadership", "coaching", "resource management"]
+      },
+      {
+        "id": "Q1-030",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Project Roles",
+        "task": "Negotiate project agreements",
+        "question_number": 30,
+        "question_text": "Lewis is a marketing associate reporting to Antwon, the company's director of marketing. He pulls you aside to get your opinion about the latest project that he claims was his idea. He expresses frustration that Antwon was named sponsor of the project instead of himself. Based on the scenario presented, who is the correct project sponsor?\nA. Lewis\nB. Antwon\nC. Neither\nD. Both",
+        "options": {
+          "A": "Lewis",
+          "B": "Antwon",
+          "C": "Neither",
+          "D": "Both"
+        },
+        "correct_answer": "B",
+        "explanation": "The project sponsor is typically a senior manager who provides resources and support; Antwon, as director, is the appropriate sponsor.",
+        "page_number": 33,
+        "difficulty": "Easy",
+        "keywords": ["project sponsor", "roles", "project governance", "organizational structure"]
+      },
+      {
+        "id": "Q1-031",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Structures",
+        "task": "Engage and support virtual teams",
+        "question_number": 31,
+        "question_text": "Colocation is also known as what?\nA. Tight matrix\nB. Virtual teams\nC. Dedicated teams\nD. Effective teams",
+        "options": {
+          "A": "Tight matrix",
+          "B": "Virtual teams",
+          "C": "Dedicated teams",
+          "D": "Effective teams"
+        },
+        "correct_answer": "A",
+        "explanation": "Colocation, where team members work in the same physical location, is also referred to as a tight matrix.",
+        "page_number": 33,
+        "difficulty": "Easy",
+        "keywords": ["colocation", "tight matrix", "team structure", "physical workspace"]
+      },
+      {
+        "id": "Q1-032",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Resource Management",
+        "task": "Acquire resources",
+        "question_number": 32,
+        "question_text": "You are in the process of attaining and hiring resources for the project. Some of the resources can be found within the organization, but three of the resources you've identified must be hired on contract. You need to consider previous experience, personal interests, personal characteristics, availability, and the competencies and proficiency of the contractors as well as the internal staff. Which of the following statements best describes the situation?\nA. The situation in this question refers to the project staff assignment, which is an output of Plan Resource Management.\nB. The situation in this question refers to organizational process assets, which are an input of Plan Resource Management.\nC. The situation in this question refers to the project staff assignments, which are an output of Acquire Resources.\nD. The situation in this question refers to the enterprise environmental factors input to the Acquire Resources process.",
+        "options": {
+          "A": "The situation in this question refers to the project staff assignment, which is an output of Plan Resource Management.",
+          "B": "The situation in this question refers to organizational process assets, which are an input of Plan Resource Management.",
+          "C": "The situation in this question refers to the project staff assignments, which are an output of Acquire Resources.",
+          "D": "The situation in this question refers to the enterprise environmental factors input to the Acquire Resources process."
+        },
+        "correct_answer": "D",
+        "explanation": "Enterprise environmental factors include availability, competencies, experience, and other characteristics of potential resources.",
+        "page_number": 33,
+        "difficulty": "Hard",
+        "keywords": ["acquire resources", "enterprise environmental factors", "resource characteristics", "staffing", "contractors"]
+      },
+      {
+        "id": "Q1-033",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Development",
+        "task": "Develop team",
+        "question_number": 33,
+        "question_text": "All of the following are methods used to develop project teams except for which one?\nA. Training\nB. Emotional intelligence\nC. Colocation\nD. Negotiation",
+        "options": {
+          "A": "Training",
+          "B": "Emotional intelligence",
+          "C": "Colocation",
+          "D": "Negotiation"
+        },
+        "correct_answer": "D",
+        "explanation": "Negotiation is used to acquire resources or resolve conflicts, not specifically for team development.",
+        "page_number": 33,
+        "difficulty": "Medium",
+        "keywords": ["team development", "training", "emotional intelligence", "colocation", "negotiation"]
+      },
+      {
+        "id": "Q1-034",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Motivation Theories",
+        "task": "Motivate team",
+        "question_number": 34,
+        "question_text": "To whom is the theory attributed that says people are motivated by the need for power, achievement, and affiliation?\nA. David McClelland\nB. Victor Vroom\nC. Frederick Herzberg\nD. Douglas McGregor",
+        "options": {
+          "A": "David McClelland",
+          "B": "Victor Vroom",
+          "C": "Frederick Herzberg",
+          "D": "Douglas McGregor"
+        },
+        "correct_answer": "A",
+        "explanation": "David McClelland's theory identifies three needs that motivate people: achievement, affiliation, and power.",
+        "page_number": 34,
+        "difficulty": "Medium",
+        "keywords": ["motivation theories", "mcclelland", "achievement", "affiliation", "power"]
+      },
+      {
+        "id": "Q1-035",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Servant Leadership",
+        "task": "Lead a team",
+        "question_number": 35,
+        "question_text": "Nicolas is the project manager of a project that has been described as revolutionizing the mobile fitness tracking industry. He prepares for a meeting with the project's sponsor to discuss how to approach the project. During the meeting, he tells the project sponsor that he would like to promote self-awareness, listening, and coaching versus controlling. Nicolas is promoting characteristics of what?\nA. Servant leadership approach\nB. Incremental approach\nC. Deming approach\nD. Hygiene model",
+        "options": {
+          "A": "Servant leadership approach",
+          "B": "Incremental approach",
+          "C": "Deming approach",
+          "D": "Hygiene model"
+        },
+        "correct_answer": "A",
+        "explanation": "Self-awareness, listening, and coaching are key characteristics of servant leadership.",
+        "page_number": 34,
+        "difficulty": "Easy",
+        "keywords": ["servant leadership", "self-awareness", "coaching", "listening", "leadership style"]
+      },
+      {
+        "id": "Q1-036",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Motivation Theories",
+        "task": "Motivate team",
+        "question_number": 36,
+        "question_text": "You are a new project manager and have always been self-motivated. You are destined to achieve good things and desire to attain the coveted PMP designation. Even after attaining the designation, you will strive to apply professional knowledge to your future projects and adhere to the PMI Code of Ethics and Professional Conduct. Which theory is described in this question, and what area of the PMI role delineation study does this question refer to?\nA. Hygiene Theory and ensure personal integrity and professionalism\nB. Contingency Theory and contribute to the project management knowledge base\nC. Expectancy Theory and enhance professional competence\nD. Leadership Theory and responsibility",
+        "options": {
+          "A": "Hygiene Theory and ensure personal integrity and professionalism",
+          "B": "Contingency Theory and contribute to the project management knowledge base",
+          "C": "Expectancy Theory and enhance professional competence",
+          "D": "Leadership Theory and responsibility"
+        },
+        "correct_answer": "C",
+        "explanation": "Expectancy Theory involves the belief that effort leads to performance and performance leads to rewards; enhancing professional competence is a key responsibility.",
+        "page_number": 34,
+        "difficulty": "Hard",
+        "keywords": ["expectancy theory", "professional competence", "motivation", "PMP certification", "ethics"]
+      },
+      {
+        "id": "Q1-037",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure fairness",
+        "question_number": 37,
+        "question_text": "You hold a position that is primarily concerned with satisfying stakeholder needs as well as issues such as plans, controls, budgets, policies, procedures, and team motivation. You have signed a nondisclosure agreement, promising not to give away trade secrets, and you have signed a noncompete agreement with your current employer that says you will not go to work for a competitor any sooner than 18 months after the date of your termination. Your staff members have signed similar agreements, but their noncompete agreement is for 12 months rather than 18. You have discovered, through a friend of a friend, that one of your staff members is interviewing at a competing company, and if the position is offered and accepted, it would violate the noncompete agreement your staff member signed. Which of the following describes the type of position you hold and the domain within the PMI Code of Ethics and Professional Conduct that pertains to this situation?\nA. Manager and Responsibility\nB. Leader and Respect\nC. Manager and Honesty\nD. Leader and Fairness",
+        "options": {
+          "A": "Manager and Responsibility",
+          "B": "Leader and Respect",
+          "C": "Manager and Honesty",
+          "D": "Leader and Fairness"
+        },
+        "correct_answer": "D",
+        "explanation": "As a leader, you should ensure fairness by addressing the potential violation of the noncompete agreement consistently.",
+        "page_number": 34,
+        "difficulty": "Hard",
+        "keywords": ["ethics", "fairness", "noncompete", "confidentiality", "leadership"]
+      },
+      {
+        "id": "Q1-038",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Resource Management",
+        "task": "Plan and manage budget and resources",
+        "question_number": 38,
+        "question_text": "Your virtual project team consists of 12 people in the same building you're located in plus 4 people from the West Coast office, 2 people from the Kansas City office, and 6 people from the London office. Your office works different hours from all the other offices. Additionally, not all of the resources in your building are available at the same times during the day. Three of those 12 team members work swing shift hours. Which of the following should you use to capture the availability information for these resources and potential future resources, as well as their capabilities and skills?\nA. Activity calendar\nB. Team roster\nC. Project calendar\nD. Resource calendar",
+        "options": {
+          "A": "Activity calendar",
+          "B": "Team roster",
+          "C": "Project calendar",
+          "D": "Resource calendar"
+        },
+        "correct_answer": "D",
+        "explanation": "Resource calendars document the availability, skills, and capabilities of individual resources.",
+        "page_number": 35,
+        "difficulty": "Medium",
+        "keywords": ["resource calendar", "availability", "virtual teams", "time zones", "resource management"]
+      },
+      {
+        "id": "Q1-039",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Development",
+        "task": "Build a team",
+        "question_number": 39,
+        "question_text": "Which of the following best describes the performing stage of the team development model, developed by Tuckman?\nA. The phase where team members meet and learn about the project and formalize their roles and responsibilities\nB. The phase where team members begin to work together and adjust their work habits and behaviors to support the team\nC. The phase where the team is functioning as a well-organized unit and work through their issues smoothly\nD. The phase where team members begin to address the project work and are not yet collaborative or open with each other",
+        "options": {
+          "A": "The phase where team members meet and learn about the project and formalize their roles and responsibilities",
+          "B": "The phase where team members begin to work together and adjust their work habits and behaviors to support the team",
+          "C": "The phase where the team is functioning as a well-organized unit and work through their issues smoothly",
+          "D": "The phase where team members begin to address the project work and are not yet collaborative or open with each other"
+        },
+        "correct_answer": "C",
+        "explanation": "The performing stage is when the team works together effectively as a cohesive unit.",
+        "page_number": 35,
+        "difficulty": "Medium",
+        "keywords": ["team development", "tuckman", "performing", "team stages", "team effectiveness"]
+      },
+      {
+        "id": "Q1-040",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Management",
+        "task": "Manage conflict",
+        "question_number": 40,
+        "question_text": "Silvana is a junior project manager who was recently hired to work on projects supporting the networking team. Her first project is plagued with issues, mostly caused by team member conflicts. Her sponsor attempts to reassure Silvana. What fact is she likely to share with Silvana?\nA. Conflict often occurs within a technical environment.\nB. Conflict is inevitable in a project environment.\nC. Conflict is always good.\nD. Conflict is never a reflection of the project manager.",
+        "options": {
+          "A": "Conflict often occurs within a technical environment.",
+          "B": "Conflict is inevitable in a project environment.",
+          "C": "Conflict is always good.",
+          "D": "Conflict is never a reflection of the project manager."
+        },
+        "correct_answer": "B",
+        "explanation": "Conflict is inevitable in projects due to competing interests, limited resources, and differing perspectives.",
+        "page_number": 35,
+        "difficulty": "Easy",
+        "keywords": ["conflict management", "inevitable conflict", "project environment", "team dynamics"]
+      },
+      {
+        "id": "Q1-041",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure honesty",
+        "question_number": 41,
+        "question_text": "Yasmin is a senior project manager for a project that aims to produce a new line of medical widgets for a Fortune 100 company. The entire industry has been buzzing with excitement over this project, which was estimated to span three years and require an investment of $1.5 billion from the company. While wrapping up for the week, Yasmin receives a fifth call from a vendor that has been pursuing an active RFP for the project. The vendor notes that they have connections in the offshore company by which the product will be manufactured, and if they win the contract, they are certain that they could bypass customs, saving Yasmin's company millions of dollars in the process. What should Yasmin do?\nA. Agree to discuss options with the vendor, since it would save the company millions of dollars.\nB. Pass on the offer but take down the vendor's phone number to keep options open.\nC. Pass on the offer and report the conversation to the company's legal department.\nD. Pass on the offer and report the conversation to her colleagues.",
+        "options": {
+          "A": "Agree to discuss options with the vendor, since it would save the company millions of dollars.",
+          "B": "Pass on the offer but take down the vendor's phone number to keep options open.",
+          "C": "Pass on the offer and report the conversation to the company's legal department.",
+          "D": "Pass on the offer and report the conversation to her colleagues."
+        },
+        "correct_answer": "C",
+        "explanation": "The vendor's offer suggests unethical or illegal practices; Yasmin should reject it and report it to legal authorities.",
+        "page_number": 35,
+        "difficulty": "Medium",
+        "keywords": ["ethics", "procurement", "vendor management", "legal compliance", "honesty"]
+      },
+      {
+        "id": "Q1-042",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure responsibility",
+        "question_number": 42,
+        "question_text": "You are in the process of hiring resources for a project. Some of the resources can be found within the organization, but three of the resources you've identified will be contracted from outside the organization. You need to consider previous experience, personal interests, personal characteristics, availability, and competencies and proficiency of the contractors as well as the internal staff. You have a friend who is looking for a job. He isn't qualified for the position, but you know him well enough to know he will come up to speed quickly. A couple of training classes should do the trick. What process is this question describing, and which area of the PMI Code of Ethics and Professional Conduct does this question refer to?\nA. Develop Team and Respect\nB. Manage Team and Honesty\nC. Plan Resource Management and Fairness\nD. Acquire Resources and Responsibility",
+        "options": {
+          "A": "Develop Team and Respect",
+          "B": "Manage Team and Honesty",
+          "C": "Plan Resource Management and Fairness",
+          "D": "Acquire Resources and Responsibility"
+        },
+        "correct_answer": "D",
+        "explanation": "Acquiring resources involves hiring, and responsibility includes making ethical hiring decisions based on qualifications.",
+        "page_number": 36,
+        "difficulty": "Hard",
+        "keywords": ["acquire resources", "ethics", "responsibility", "hiring", "qualifications"]
+      },
+      {
+        "id": "Q1-043",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Leadership",
+        "task": "Lead a team",
+        "question_number": 43,
+        "question_text": "You've noticed that your CIO shows all the signs of being a good leader. Which of the following statements are true regarding leaders? (Select three.)\nA. Leaders use referent power.\nB. Leaders impart vision.\nC. Leaders are concerned with strategic plans.\nD. Leaders are concerned with satisfying stakeholder needs.",
+        "options": {
+          "A": "Leaders use referent power.",
+          "B": "Leaders impart vision.",
+          "C": "Leaders are concerned with strategic plans.",
+          "D": "Leaders are concerned with satisfying stakeholder needs."
+        },
+        "correct_answer": "ABC",
+        "explanation": "Leaders typically use referent power, impart vision, and focus on strategic plans, while managers focus more on satisfying stakeholder needs.",
+        "page_number": 36,
+        "difficulty": "Hard",
+        "keywords": ["leadership", "referent power", "vision", "strategic planning", "management"]
+      },
+      {
+        "id": "Q1-044",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Stakeholder Engagement",
+        "task": "Engage stakeholders",
+        "question_number": 44,
+        "question_text": "You are working with your stakeholders and performing activities associated with the Executing process group. You are dealing with some issues involving the project objectives and are working to maintain consensus among the five stakeholders participating in this project. You have used both influencing and negotiating skills and have finally come to consensus on the issue at hand. Which of the following options best describes the contents of this question?\nA. You are using the interpersonal and team skills tool and technique of the Manage Stakeholder Engagement process.\nB. You are using the management skills tool and technique of the Control Stakeholder Engagement process.\nC. You are using the communication method tool and technique of the Plan Stakeholder Management process.\nD. You are using the meetings tool and technique of the Plan Stakeholder Management process.",
+        "options": {
+          "A": "You are using the interpersonal and team skills tool and technique of the Manage Stakeholder Engagement process.",
+          "B": "You are using the management skills tool and technique of the Control Stakeholder Engagement process.",
+          "C": "You are using the communication method tool and technique of the Plan Stakeholder Management process.",
+          "D": "You are using the meetings tool and technique of the Plan Stakeholder Management process."
+        },
+        "correct_answer": "A",
+        "explanation": "Influencing and negotiating are interpersonal skills used in the Manage Stakeholder Engagement process during project execution.",
+        "page_number": 36,
+        "difficulty": "Hard",
+        "keywords": ["stakeholder engagement", "interpersonal skills", "influencing", "negotiation", "executing"]
+      },
+      {
+        "id": "Q1-045",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Motivation",
+        "task": "Support team performance",
+        "question_number": 45,
+        "question_text": "Recognition and rewards are important parts of team interaction. They are both formal ways of recognizing and promoting desirable behavior. Which of the following statements are true regarding reward and recognition? (Select three.)\nA. They are an input of the Develop Team process.\nB. They should be proportional to the achievement.\nC. Rewards can kill motivation if used improperly.\nD. Rewards should be linked to performance.",
+        "options": {
+          "A": "They are an input of the Develop Team process.",
+          "B": "They should be proportional to the achievement.",
+          "C": "Rewards can kill motivation if used improperly.",
+          "D": "Rewards should be linked to performance."
+        },
+        "correct_answer": "BCD",
+        "explanation": "Rewards and recognition should be proportional to achievement, linked to performance, and can demotivate if used improperly.",
+        "page_number": 36,
+        "difficulty": "Medium",
+        "keywords": ["recognition", "rewards", "motivation", "team performance", "incentives"]
+      },
+      {
+        "id": "Q1-046",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure responsibility",
+        "question_number": 46,
+        "question_text": "Victor Vroom developed a theory that recognizes the belief that a positive outcome drives motivation. You are looking for a new position as a program manager. You don't have the experience for this level of responsibility, but you are rationalizing that if you have enough motivation and can fudge a bit of experience on the application, you're showing initiative, and hopefully, the outcome will be in your favor. What theory is this question describing, and what area within the Responsibility domain of the PMI Code of Ethics and Professional Conduct does this question refer to?\nA. Hygiene Theory and Professional Demeanor\nB. Achievement Theory and Ensuring Integrity\nC. Expectancy Theory and Accepting Assignments\nD. Self-actualization level of the Hierarchy of Needs and Conflict of Interest",
+        "options": {
+          "A": "Hygiene Theory and Professional Demeanor",
+          "B": "Achievement Theory and Ensuring Integrity",
+          "C": "Expectancy Theory and Accepting Assignments",
+          "D": "Self-actualization level of the Hierarchy of Needs and Conflict of Interest"
+        },
+        "correct_answer": "C",
+        "explanation": "Expectancy Theory relates effort to expected outcomes, and accepting assignments for which you're qualified is a responsibility domain principle.",
+        "page_number": 37,
+        "difficulty": "Hard",
+        "keywords": ["expectancy theory", "ethics", "responsibility", "qualifications", "motivation"]
+      },
+      {
+        "id": "Q1-047",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Virtual Teams",
+        "task": "Engage and support virtual teams",
+        "question_number": 47,
+        "question_text": "A project manager is planning the kickoff meeting for a project that will have team members dispersed across nine countries. What can the project manager do to support an environment where diverse perspectives and views are encouraged and valued?\nA. Include videoconferencing as an option.\nB. Have all team members attend the kickoff in person.\nC. Hold diversity training.\nD. Have each team member state their name and country.",
+        "options": {
+          "A": "Include videoconferencing as an option.",
+          "B": "Have all team members attend the kickoff in person.",
+          "C": "Hold diversity training.",
+          "D": "Have each team member state their name and country."
+        },
+        "correct_answer": "C",
+        "explanation": "Diversity training helps create an inclusive environment where diverse perspectives are valued and encouraged.",
+        "page_number": 37,
+        "difficulty": "Medium",
+        "keywords": ["diversity", "virtual teams", "inclusion", "training", "global teams"]
+      },
+      {
+        "id": "Q1-048",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Virtual Teams",
+        "task": "Engage and support virtual teams",
+        "question_number": 48,
+        "question_text": "Your virtual project team consists of 12 people in the same building you're located in plus 4 people from the West Coast office, 2 people from the Kansas City office, and 6 people from the London office. Your office works different hours from all the other offices. Additionally, not all of the resources in your building are available at the same times during the day. Three of those 12 team members work swing shift hours. Which of the following are true? (Select three.)\nA. The teams do not have the same project goals because of the differences in location. Your role is to make certain team members understand the goals and how you will be measuring their performance.\nB. Team members should understand the expectations you have for them on the project, and you should make certain they understand the decision-making processes.\nC. Your role is to communicate to all team members and make certain they understand the protocols for communicating with you and each other.\nD. Your role is to make certain that team members are given credit for their performance and actions on the project.",
+        "options": {
+          "A": "The teams do not have the same project goals because of the differences in location. Your role is to make certain team members understand the goals and how you will be measuring their performance.",
+          "B": "Team members should understand the expectations you have for them on the project, and you should make certain they understand the decision-making processes.",
+          "C": "Your role is to communicate to all team members and make certain they understand the protocols for communicating with you and each other.",
+          "D": "Your role is to make certain that team members are given credit for their performance and actions on the project."
+        },
+        "correct_answer": "BCD",
+        "explanation": "With virtual teams, it's crucial to establish clear expectations, communication protocols, and recognition systems across locations.",
+        "page_number": 37,
+        "difficulty": "Hard",
+        "keywords": ["virtual teams", "communication", "expectations", "decision-making", "recognition"]
+      },
+      {
+        "id": "Q1-049",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Development",
+        "task": "Build a team",
+        "question_number": 49,
+        "question_text": "You have accepted a position in a new company and have spent the first 30 days observing your team. Your findings, unfortunately, are not encouraging. The team exhibits a lack of motivation, poor communication among team members, a lack of respect for you and your position, and project work results that are less than satisfactory. For a fleeting moment, you think about leaving but realize that's not in keeping with the PMI Code of Ethics and Professional Conduct. You know all of the following are true, given the circumstances, except for which one?\nA. You know that quitting would not be in keeping with the Responsibility, Respect, Fairness, or Honesty domains of the PMI Code of Ethics and Professional Conduct.\nB. You will use interpersonal skills, training, and team-building activities, among others, to attempt to improve this dysfunctional team.\nC. You are carrying out activities associated with team management and realize that since you are new, the stages of team development will start over again at the forming stage.\nD. You will use ground rules, recognition and rewards, and personnel assessment tools, among others, to attempt to improve this dysfunctional team.",
+        "options": {
+          "A": "You know that quitting would not be in keeping with the Responsibility, Respect, Fairness, or Honesty domains of the PMI Code of Ethics and Professional Conduct.",
+          "B": "You will use interpersonal skills, training, and team-building activities, among others, to attempt to improve this dysfunctional team.",
+          "C": "You are carrying out activities associated with team management and realize that since you are new, the stages of team development will start over again at the forming stage.",
+          "D": "You will use ground rules, recognition and rewards, and personnel assessment tools, among others, to attempt to improve this dysfunctional team."
+        },
+        "correct_answer": "A",
+        "explanation": "Quitting a difficult situation doesn't necessarily violate the PMI Code of Ethics; the code focuses on ethical behavior, not employment decisions.",
+        "page_number": 38,
+        "difficulty": "Hard",
+        "keywords": ["team development", "ethics", "dysfunctional team", "team management", "professional conduct"]
+      },
+      {
+        "id": "Q1-050",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Agile Roles",
+        "task": "Determine appropriate project methodology",
+        "question_number": 50,
+        "question_text": "All of the following are common roles used in Agile projects except for which one?\nA. Cross-functional team member\nB. Project manager\nC. Product owner\nD. Team facilitator",
+        "options": {
+          "A": "Cross-functional team member",
+          "B": "Project manager",
+          "C": "Product owner",
+          "D": "Team facilitator"
+        },
+        "correct_answer": "B",
+        "explanation": "Traditional project manager roles are often replaced by Scrum Master, Product Owner, and team member roles in Agile projects.",
+        "page_number": 38,
+        "difficulty": "Easy",
+        "keywords": ["agile roles", "scrum", "product owner", "scrum master", "project manager"]
+		      },
+      {
+        "id": "Q1-050",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Agile Roles",
+        "task": "Determine appropriate project methodology",
+        "question_number": 50,
+        "question_text": "All of the following are common roles used in Agile projects except for which one?\nA. Cross-functional team member\nB. Project manager\nC. Product owner\nD. Team facilitator",
+        "options": {
+          "A": "Cross-functional team member",
+          "B": "Project manager",
+          "C": "Product owner",
+          "D": "Team facilitator"
+        },
+        "correct_answer": "B",
+        "explanation": "Traditional project manager roles are often replaced by Scrum Master, Product Owner, and team member roles in Agile projects.",
+        "page_number": 38,
+        "difficulty": "Easy",
+        "keywords": ["agile roles", "scrum", "product owner", "scrum master", "project manager"]
+      },
+      {
+        "id": "Q1-051",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure fairness",
+        "question_number": 51,
+        "question_text": "You hold a position that is primarily concerned with satisfying stakeholder needs as well as issues such as plans, controls, budgets, policies, procedures, and team motivation. You have signed a nondisclosure agreement, promising not to give away trade secrets, and you have signed a noncompete agreement with your current employer that says you will not go to work for a competitor any sooner than 18 months after the date of your termination. You will be working with a virtual team, and during the hiring process, the members will be required to sign similar agreements, but their noncompete agreement is for 12 months rather than 18 months. Because this virtual team will have members from all over the globe, you should be concerned with one area in particular of the PMI Code of Ethics and Professional Conduct. Which of the following options best describes this situation?\nA. You are a manager, working in the Develop Team process, and need to pay particular attention to cultural awareness and diversity training.\nB. You are a manager, working in the Acquire Resources process, and need to pay particular attention to cultural awareness and diversity training.\nC. You are a manager, working in the Develop Team process, and need to pay particular attention to fairness and stakeholder influence.\nD. You are a manager, working in the Acquire Resources process, and need to pay particular attention to fairness and stakeholder influence.",
+        "options": {
+          "A": "You are a manager, working in the Develop Team process, and need to pay particular attention to cultural awareness and diversity training.",
+          "B": "You are a manager, working in the Acquire Resources process, and need to pay particular attention to cultural awareness and diversity training.",
+          "C": "You are a manager, working in the Develop Team process, and need to pay particular attention to fairness and stakeholder influence.",
+          "D": "You are a manager, working in the Acquire Resources process, and need to pay particular attention to fairness and stakeholder influence."
+        },
+        "correct_answer": "B",
+        "explanation": "Acquiring global resources requires attention to cultural awareness and diversity to ensure fair and inclusive practices.",
+        "page_number": 38,
+        "difficulty": "Hard",
+        "keywords": ["acquire resources", "ethics", "fairness", "cultural awareness", "diversity", "global teams"]
+      },
+      {
+        "id": "Q1-052",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Recognition and Rewards",
+        "task": "Support team performance",
+        "question_number": 52,
+        "question_text": "Your project sponsor approaches you with a small bonus check for your excellent work keeping costs in line with the budget. You think the amount of the bonus check is fair and deserved. Which of the following statements are true? (Select two.)\nA. The reward is appropriately linked to the performance.\nB. Rewards and recognition systems are informal ways of promoting desirable behavior.\nC. Rewards and recognition systems are created as a result of the project.\nD. The reward is in line with the performance, and you should accept it.",
+        "options": {
+          "A": "The reward is appropriately linked to the performance.",
+          "B": "Rewards and recognition systems are informal ways of promoting desirable behavior.",
+          "C": "Rewards and recognition systems are created as a result of the project.",
+          "D": "The reward is in line with the performance, and you should accept it."
+        },
+        "correct_answer": "AD",
+        "explanation": "Rewards should be linked to performance and accepted when they're appropriate and deserved.",
+        "page_number": 39,
+        "difficulty": "Medium",
+        "keywords": ["rewards", "recognition", "performance", "incentives", "bonus"]
+      },
+      {
+        "id": "Q1-053",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Stakeholder Engagement",
+        "task": "Monitor stakeholder engagement",
+        "question_number": 53,
+        "question_text": "At minimum, measuring stakeholder satisfaction typically occurs at what point of the project life cycle?\nA. During project initiation\nB. During project planning\nC. During project execution\nD. During project closure",
+        "options": {
+          "A": "During project initiation",
+          "B": "During project planning",
+          "C": "During project execution",
+          "D": "During project closure"
+        },
+        "correct_answer": "D",
+        "explanation": "Stakeholder satisfaction is typically measured during project closure to assess overall project success.",
+        "page_number": 39,
+        "difficulty": "Medium",
+        "keywords": ["stakeholder satisfaction", "project closure", "measurement", "project life cycle"]
+      },
+      {
+        "id": "Q1-054",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Stakeholder Management",
+        "task": "Identify stakeholders",
+        "question_number": 54,
+        "question_text": "You've decided to branch out into project management consulting and have landed your first contracting assignment. You are working on an exciting project for a midsize company that provides pet-sitting services in people's homes. The employee who is the designated project manager on this project doesn't have much experience running projects. He insists that all the stakeholders have been identified and that he alone understands their expectations so there is no need for you to meet with them. As a more experienced project manager, you know which of the following is true?\nA. He is correct. You do not need to meet with the stakeholders as long as they have been identified. His knowledge of their expectations alone is sufficient.\nB. You should meet with the stakeholders. Project Communications Management is concerned with documenting the needs and demands of the stakeholders and capturing this information in the project scope statement.\nC. You do not need to meet with the stakeholders since they have already been identified. You can meet them when you capture their requirements in the Collect Requirements process, which is part of the Project Integration Management Knowledge Area.\nD. You should meet with the stakeholders, identify them, assess their needs, and record their expectations as part of the Project Stakeholder Management Knowledge Area.",
+        "options": {
+          "A": "He is correct. You do not need to meet with the stakeholders as long as they have been identified. His knowledge of their expectations alone is sufficient.",
+          "B": "You should meet with the stakeholders. Project Communications Management is concerned with documenting the needs and demands of the stakeholders and capturing this information in the project scope statement.",
+          "C": "You do not need to meet with the stakeholders since they have already been identified. You can meet them when you capture their requirements in the Collect Requirements process, which is part of the Project Integration Management Knowledge Area.",
+          "D": "You should meet with the stakeholders, identify them, assess their needs, and record their expectations as part of the Project Stakeholder Management Knowledge Area."
+        },
+        "correct_answer": "D",
+        "explanation": "Proper stakeholder management involves meeting with stakeholders, identifying them, assessing their needs, and documenting expectations.",
+        "page_number": 39,
+        "difficulty": "Medium",
+        "keywords": ["stakeholder management", "stakeholder identification", "expectations", "needs assessment"]
+      },
+      {
+        "id": "Q1-055",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Assessment",
+        "task": "Build a team",
+        "question_number": 55,
+        "question_text": "A project manager is interested in organizing the team based on individual team member strengths. What tool can they use to gain insights into team strengths and weaknesses, including how they make decisions, interact with others, and process information? (Select three.)\nA. Training\nB. Structured interviews\nC. Ability tests\nD. Attitudinal surveys",
+        "options": {
+          "A": "Training",
+          "B": "Structured interviews",
+          "C": "Ability tests",
+          "D": "Attitudinal surveys"
+        },
+        "correct_answer": "BCD",
+        "explanation": "Structured interviews, ability tests, and attitudinal surveys help assess team members' strengths, weaknesses, and behavioral patterns.",
+        "page_number": 39,
+        "difficulty": "Medium",
+        "keywords": ["team assessment", "strengths", "weaknesses", "interviews", "tests", "surveys"]
+      },
+      {
+        "id": "Q1-056",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Resolution",
+        "task": "Manage conflict",
+        "question_number": 56,
+        "question_text": "Match the following conflict-resolution techniques to their corresponding descriptions.",
+        "options": {
+          "A": "Compromise",
+          "B": "Collaborate",
+          "C": "Force",
+          "D": "Avoid"
+        },
+        "correct_answer": "A-2, B-4, C-3, D-1",
+        "explanation": "Compromise: partially resolves conflict; Collaborate: leads to consensus; Force: win-lose; Avoid: withdrawing.",
+        "page_number": 40,
+        "difficulty": "Hard",
+        "keywords": ["conflict resolution", "compromise", "collaborate", "force", "avoid", "techniques"]
+      },
+      {
+        "id": "Q1-057",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Servant Leadership",
+        "task": "Lead a team",
+        "question_number": 57,
+        "question_text": "A project manager has a reputation for leading project teams by focusing on developing team member skills, coaching them, and empowering them. What are these a characteristic of?\nA. Situational leader\nB. Servant leader\nC. Facilitator\nD. Coach",
+        "options": {
+          "A": "Situational leader",
+          "B": "Servant leader",
+          "C": "Facilitator",
+          "D": "Coach"
+        },
+        "correct_answer": "B",
+        "explanation": "Developing skills, coaching, and empowering team members are key characteristics of servant leadership.",
+        "page_number": 40,
+        "difficulty": "Easy",
+        "keywords": ["servant leadership", "coaching", "empowerment", "skill development"]
+      },
+      {
+        "id": "Q1-058",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Stakeholder Analysis",
+        "task": "Monitor stakeholder engagement",
+        "question_number": 58,
+        "question_text": "You are in the process of evaluating the engagement levels of stakeholders. What tool can you use to help you get started quickly?\nA. Stakeholder assessment matrix\nB. Alternatives analysis\nC. Root-cause analysis\nD. Presentations",
+        "options": {
+          "A": "Stakeholder assessment matrix",
+          "B": "Alternatives analysis",
+          "C": "Root-cause analysis",
+          "D": "Presentations"
+        },
+        "correct_answer": "A",
+        "explanation": "A stakeholder assessment matrix helps quickly evaluate and categorize stakeholder engagement levels.",
+        "page_number": 40,
+        "difficulty": "Medium",
+        "keywords": ["stakeholder assessment", "engagement levels", "matrix", "analysis"]
+      },
+      {
+        "id": "Q1-059",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Stakeholder Engagement",
+        "task": "Monitor stakeholder engagement",
+        "question_number": 59,
+        "question_text": "Leticia is a project manager working for Dancing Apron, a company that combines cooking with simple children's cooking recipes and music. Her latest project involves the release of the company's first digital product, which parents will be able to purchase and download online. While overseeing the project, Leticia notices that recent stakeholder engagement levels have dropped significantly, and they've begun to disagree during status meetings. She decides to evaluate their engagement levels using prioritized criteria and weights that she documented in the stakeholder engagement plan so that she can share and discuss the results with the project sponsor. What primary activity is Leticia performing?\nA. Strategizing how to engage stakeholders\nB. Managing stakeholder engagement levels\nC. Influencing stakeholder engagement levels\nD. Monitoring the engagement levels of stakeholders",
+        "options": {
+          "A": "Strategizing how to engage stakeholders",
+          "B": "Managing stakeholder engagement levels",
+          "C": "Influencing stakeholder engagement levels",
+          "D": "Monitoring the engagement levels of stakeholders"
+        },
+        "correct_answer": "D",
+        "explanation": "Leticia is monitoring stakeholder engagement by evaluating current levels against planned criteria.",
+        "page_number": 40,
+        "difficulty": "Medium",
+        "keywords": ["stakeholder engagement", "monitoring", "evaluation", "assessment", "metrics"]
+      },
+      {
+        "id": "Q1-060",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Knowledge Management",
+        "task": "Ensure knowledge transfer",
+        "question_number": 60,
+        "question_text": "Knowledge that can be codified using images, numbers, and words is called what?\nA. Explicit knowledge\nB. Tacit knowledge\nC. Tangible knowledge\nD. Formal knowledge",
+        "options": {
+          "A": "Explicit knowledge",
+          "B": "Tacit knowledge",
+          "C": "Tangible knowledge",
+          "D": "Formal knowledge"
+        },
+        "correct_answer": "A",
+        "explanation": "Explicit knowledge can be easily articulated, codified, stored, and accessed.",
+        "page_number": 41,
+        "difficulty": "Easy",
+        "keywords": ["knowledge management", "explicit knowledge", "tacit knowledge", "codified"]
+      },
+      {
+        "id": "Q1-061",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Team Performance",
+        "task": "Support team performance",
+        "question_number": 61,
+        "question_text": "Which of the following activities involves determining and documenting a team's effectiveness?\nA. Team performance assessments\nB. Project performance appraisals\nC. Organizational process assets updates\nD. Enterprise environmental factors updates",
+        "options": {
+          "A": "Team performance assessments",
+          "B": "Project performance appraisals",
+          "C": "Organizational process assets updates",
+          "D": "Enterprise environmental factors updates"
+        },
+        "correct_answer": "A",
+        "explanation": "Team performance assessments evaluate and document team effectiveness, competencies, and improvements.",
+        "page_number": 41,
+        "difficulty": "Easy",
+        "keywords": ["team performance", "assessment", "effectiveness", "evaluation"]
+      },
+      {
+        "id": "Q1-062",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Communication",
+        "task": "Manage communications",
+        "question_number": 62,
+        "question_text": "A project manager is performing closure activities for the project and meets with the project sponsor to review the final report. The report reveals that the project budget is 90 percent consumed. The project sponsor expresses concern that there may be a risk of going over budget. How is the project manager likely to respond?\nA. Assure the project sponsor that the risk of going over budget is low.\nB. Agree with the project sponsor and begin risk mitigation activities.\nC. Email the project team to express disappointment in project spending.\nD. Take offense at the project sponsor's lack of trust and confidence.",
+        "options": {
+          "A": "Assure the project sponsor that the risk of going over budget is low.",
+          "B": "Agree with the project sponsor and begin risk mitigation activities.",
+          "C": "Email the project team to express disappointment in project spending.",
+          "D": "Take offense at the project sponsor's lack of trust and confidence."
+        },
+        "correct_answer": "A",
+        "explanation": "With 90% budget consumed at project closure, there's minimal risk of overrun as most work is complete.",
+        "page_number": 41,
+        "difficulty": "Medium",
+        "keywords": ["project closure", "budget", "risk", "communication", "sponsor management"]
+      },
+      {
+        "id": "Q1-063",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Performance Management",
+        "task": "Manage team",
+        "question_number": 63,
+        "question_text": "You are a project manager carrying out various activities that involve managing the team. At present, you are preparing for your individual team members' performance assessments. Which of the following will assist you as you carry out this activity? (Select three.)\nA. Work performance reports\nB. Project management information system\nC. Resource management plan\nD. Team performance assessments",
+        "options": {
+          "A": "Work performance reports",
+          "B": "Project management information system",
+          "C": "Resource management plan",
+          "D": "Team performance assessments"
+        },
+        "correct_answer": "ABC",
+        "explanation": "Work performance reports, PMIS, and resource management plan provide data and guidance for individual performance assessments.",
+        "page_number": 41,
+        "difficulty": "Medium",
+        "keywords": ["performance management", "assessment", "work performance", "resource management", "PMIS"]
+      },
+      {
+        "id": "Q1-064",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Issue Management",
+        "task": "Manage project issues",
+        "question_number": 64,
+        "question_text": "Rianna is a developer who is interested in moving toward a career in project management. She takes on a small project that will implement a new security feature to protect her company's internal network. To date, she has baselined the project's scope, schedule, and budget, and she is now actively helping to resolve issues as they arise. What outcome is she looking to produce?\nA. Optimize project performance\nB. Improve competencies\nC. Improve team interaction\nD. Allocate resources appropriately",
+        "options": {
+          "A": "Optimize project performance",
+          "B": "Improve competencies",
+          "C": "Improve team interaction",
+          "D": "Allocate resources appropriately"
+        },
+        "correct_answer": "A",
+        "explanation": "Resolving issues helps optimize project performance by addressing obstacles to progress.",
+        "page_number": 41,
+        "difficulty": "Medium",
+        "keywords": ["issue management", "project performance", "problem solving", "optimization"]
+      },
+      {
+        "id": "Q1-065",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Virtual Teams",
+        "task": "Engage and support virtual teams",
+        "question_number": 65,
+        "question_text": "Which of the following best defines virtual teams? (Select two.)\nA. Groups of people with a shared goal who are dispersed across various locations\nB. Groups of colocated people with a shared goal who fulfill their roles with little or no time spent meeting face to face\nC. Groups of people with a shared goal who fulfill their roles with little or no time spent meeting face to face\nD. Groups of people with varying goals who fulfill their roles with little or no time spent meeting face to face",
+        "options": {
+          "A": "Groups of people with a shared goal who are dispersed across various locations",
+          "B": "Groups of colocated people with a shared goal who fulfill their roles with little or no time spent meeting face to face",
+          "C": "Groups of people with a shared goal who fulfill their roles with little or no time spent meeting face to face",
+          "D": "Groups of people with varying goals who fulfill their roles with little or no time spent meeting face to face"
+        },
+        "correct_answer": "AC",
+        "explanation": "Virtual teams are dispersed groups with shared goals who work together with minimal face-to-face interaction.",
+        "page_number": 42,
+        "difficulty": "Easy",
+        "keywords": ["virtual teams", "dispersed teams", "remote work", "shared goals"]
+      },
+      {
+        "id": "Q1-066",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Maintain respect",
+        "question_number": 66,
+        "question_text": "You are in the midst of some difficult procurement negotiations. The schedule, service-level agreements, and incentives have not been agreed upon. One of the parties representing the vendor lashes out at you during the negotiations. You were not expecting this outburst and are just about to stoop to their level when you remember which of the following in reference to the PMI Code of Ethics and Professional Conduct and the process you are currently performing?\nA. Your actions and you should maintain respect even though the other party is out of control. The Control Procurements process can be difficult when you are negotiating complex contracts.\nB. You can't control the actions of others, but you can control your actions, and you should ensure personal integrity by controlling yourself even though the other party is out of control. The Control Procurements process can be difficult when you are negotiating complex contracts.\nC. You can't control the actions of others, but you can control your actions, and you should maintain respect even though the other party is out of control. The Conduct Procurements process can be difficult when you are negotiating complex contracts.\nD. You can't control the actions of others, but you can control your actions, and you should ensure personal integrity by controlling yourself even though the other party is out of control. The Conduct Procurements process can be difficult when you are negotiating complex contracts.",
+        "options": {
+          "A": "Your actions and you should maintain respect even though the other party is out of control. The Control Procurements process can be difficult when you are negotiating complex contracts.",
+          "B": "You can't control the actions of others, but you can control your actions, and you should ensure personal integrity by controlling yourself even though the other party is out of control. The Control Procurements process can be difficult when you are negotiating complex contracts.",
+          "C": "You can't control the actions of others, but you can control your actions, and you should maintain respect even though the other party is out of control. The Conduct Procurements process can be difficult when you are negotiating complex contracts.",
+          "D": "You can't control the actions of others, but you can control your actions, and you should ensure personal integrity by controlling yourself even though the other party is out of control. The Conduct Procurements process can be difficult when you are negotiating complex contracts."
+        },
+        "correct_answer": "D",
+        "explanation": "Maintaining personal integrity and self-control during difficult negotiations is key, especially in the Conduct Procurements process.",
+        "page_number": 42,
+        "difficulty": "Hard",
+        "keywords": ["ethics", "procurement", "negotiation", "integrity", "self-control", "conduct procurements"]
+      },
+      {
+        "id": "Q1-067",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Resolution",
+        "task": "Manage conflict",
+        "question_number": 67,
+        "question_text": "This win-win conflict-resolution technique is the one that project managers should use most.\nA. Collaboration\nB. Compromise\nC. Withdrawal\nD. Smoothing",
+        "options": {
+          "A": "Collaboration",
+          "B": "Compromise",
+          "C": "Withdrawal",
+          "D": "Smoothing"
+        },
+        "correct_answer": "A",
+        "explanation": "Collaboration is the preferred win-win approach that seeks solutions satisfying all parties.",
+        "page_number": 42,
+        "difficulty": "Easy",
+        "keywords": ["conflict resolution", "collaboration", "win-win", "preferred technique"]
+      },
+      {
+        "id": "Q1-068",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Project Closure",
+        "task": "Plan and manage project/phase closure",
+        "question_number": 68,
+        "question_text": "A superuser of a customer relationship management system calls the project manager for assistance in resolving a system bug recently discovered by a member of his team. What has the project manager failed to do?\nA. Provide the appropriate training to superusers to ensure they are equipped to address bugs as they arise.\nB. Publish the final report of the project, which would detail how ongoing activities are to be addressed.\nC. Release the project team back to their ongoing responsibilities, including the superuser community.\nD. Transition the ongoing support and maintenance of the system to the appropriate operational team.",
+        "options": {
+          "A": "Provide the appropriate training to superusers to ensure they are equipped to address bugs as they arise.",
+          "B": "Publish the final report of the project, which would detail how ongoing activities are to be addressed.",
+          "C": "Release the project team back to their ongoing responsibilities, including the superuser community.",
+          "D": "Transition the ongoing support and maintenance of the system to the appropriate operational team."
+        },
+        "correct_answer": "D",
+        "explanation": "The project manager failed to properly transition support and maintenance to operational teams during project closure.",
+        "page_number": 42,
+        "difficulty": "Medium",
+        "keywords": ["project closure", "transition", "operations", "support", "maintenance"]
+      },
+      {
+        "id": "Q1-069",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Resolution",
+        "task": "Manage conflict",
+        "question_number": 69,
+        "question_text": "Avoiding, accommodating, reconciling, directing, and problem-solving are all considered to be types of what?\nA. Interpersonal and team skills\nB. Communication skills\nC. Conflict resolution\nD. Power",
+        "options": {
+          "A": "Interpersonal and team skills",
+          "B": "Communication skills",
+          "C": "Conflict resolution",
+          "D": "Power"
+        },
+        "correct_answer": "C",
+        "explanation": "These are all different conflict resolution techniques or approaches.",
+        "page_number": 43,
+        "difficulty": "Easy",
+        "keywords": ["conflict resolution", "techniques", "approaches", "strategies"]
+      },
+      {
+        "id": "Q1-070",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Resolution",
+        "task": "Manage conflict",
+        "question_number": 70,
+        "question_text": "Which of the following conflict-resolution techniques emphasizes areas of agreement rather than areas of difference?\nA. Smoothing\nB. Compromising\nC. Reconciling\nD. Directing",
+        "options": {
+          "A": "Smoothing",
+          "B": "Compromising",
+          "C": "Reconciling",
+          "D": "Directing"
+        },
+        "correct_answer": "A",
+        "explanation": "Smoothing (or accommodating) focuses on areas of agreement and downplays differences.",
+        "page_number": 43,
+        "difficulty": "Medium",
+        "keywords": ["conflict resolution", "smoothing", "accommodating", "agreement", "differences"]
+      },
+      {
+        "id": "Q1-071",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Leadership",
+        "task": "Lead a team",
+        "question_number": 71,
+        "question_text": "Your manager knocks on your door and asks whether you have time to discuss the recent draft status report you sent her for review. She knows you are interested in performing at your best, but it seems that the third paragraph of the status report may contain a misstatement. She diligently listens to your explanation and realizes that her assumptions were incorrect. She explains that if she misunderstood, others might also. She asks if you wouldn't mind taking a stab at clarifying this paragraph. Which theory does your manager practice?\nA. Achievement Theory\nB. Expectancy Theory\nC. Contingency Theory\nD. Theory Y",
+        "options": {
+          "A": "Achievement Theory",
+          "B": "Expectancy Theory",
+          "C": "Contingency Theory",
+          "D": "Theory Y"
+        },
+        "correct_answer": "D",
+        "explanation": "Theory Y assumes employees are self-motivated, responsible, and creative, which aligns with the manager's supportive approach.",
+        "page_number": 43,
+        "difficulty": "Medium",
+        "keywords": ["leadership theories", "theory y", "management style", "supportive", "trust"]
+      },
+      {
+        "id": "Q1-072",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Performance Management",
+        "task": "Manage team",
+        "question_number": 72,
+        "question_text": "You are in the Manage Team process and preparing for your individual team members' performance assessments. You will use one of the tools and techniques of this process to determine each team member's leadership, influencing, and effective decision-making capabilities. Which tool and technique is this referring to?\nA. Interpersonal and team skills\nB. Observation and conversation\nC. Leadership skills\nD. General management skills",
+        "options": {
+          "A": "Interpersonal and team skills",
+          "B": "Observation and conversation",
+          "C": "Leadership skills",
+          "D": "General management skills"
+        },
+        "correct_answer": "B",
+        "explanation": "Observation and conversation are used to assess team member performance, including leadership and decision-making abilities.",
+        "page_number": 43,
+        "difficulty": "Medium",
+        "keywords": ["performance management", "observation", "conversation", "assessment", "leadership"]
+      },
+      {
+        "id": "Q1-073",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Decision Making",
+        "task": "Lead a team",
+        "question_number": 73,
+        "question_text": "Match the decision-making technique with its description.",
+        "options": {
+          "A": "Autocratic",
+          "B": "Multicriteria decision analysis",
+          "C": "Voting"
+        },
+        "correct_answer": "A-2, B-1, C-3",
+        "explanation": "Autocratic: one individual decides; Multicriteria: systematic approach; Voting: uses unanimity/majority/plurality.",
+        "page_number": 44,
+        "difficulty": "Medium",
+        "keywords": ["decision making", "autocratic", "multicriteria", "voting", "techniques"]
+      },
+      {
+        "id": "Q1-074",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Leadership Theories",
+        "task": "Lead a team",
+        "question_number": 74,
+        "question_text": "You are a project manager working for a nonprofit organization. Your team consists of full-time employees from the same nonprofit organization, and all of you are motivated by providing a service to others in need. You have worked with these team members before and know they all have outstanding performance records. Your project concerns setting up a receiving and distribution center for new and gently used laptops to be distributed to schools in Latvia. At a recent team meeting, you reiterated the expectations for this project with all of your team members. You eagerly listened to their ideas and concerns and assured them you would support them in meeting the goals of the project no matter what it takes. Which theory do you subscribe to?\nA. Theory X\nB. Hygiene Theory\nC. Contingency Theory\nD. Theory Y",
+        "options": {
+          "A": "Theory X",
+          "B": "Hygiene Theory",
+          "C": "Contingency Theory",
+          "D": "Theory Y"
+        },
+        "correct_answer": "D",
+        "explanation": "Theory Y assumes employees are self-motivated, responsible, and capable, which aligns with the supportive approach described.",
+        "page_number": 44,
+        "difficulty": "Medium",
+        "keywords": ["leadership theories", "theory y", "trust", "empowerment", "supportive"]
+      },
+      {
+        "id": "Q1-075",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure fairness",
+        "question_number": 75,
+        "question_text": "A junior project manager works with the procurement manager to review vendor proposals. The procurement manager decides to select a vendor who did not have the highest weighted score against the criteria that were predetermined. The project manager learns that the vendor is the procurement manager's cousin. What should the project manager do?\nA. Bring this to the procurement manager's attention and report it to the appropriate department for investigation.\nB. Do nothing. Project managers should respect the role and authority of each member of the team.\nC. Confront the procurement manager and threaten to report their behavior to the ethics committee.\nD. Overturn the procurement manager's decision and select the vendor with the highest weighted score.",
+        "options": {
+          "A": "Bring this to the procurement manager's attention and report it to the appropriate department for investigation.",
+          "B": "Do nothing. Project managers should respect the role and authority of each member of the team.",
+          "C": "Confront the procurement manager and threaten to report their behavior to the ethics committee.",
+          "D": "Overturn the procurement manager's decision and select the vendor with the highest weighted score."
+        },
+        "correct_answer": "A",
+        "explanation": "The apparent conflict of interest should be brought to attention and investigated through proper channels.",
+        "page_number": 44,
+        "difficulty": "Medium",
+        "keywords": ["ethics", "procurement", "conflict of interest", "fairness", "reporting"]
+      },
+      {
+        "id": "Q1-076",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Project Closure",
+        "task": "Plan and manage project/phase closure",
+        "question_number": 76,
+        "question_text": "A project manager hosted a celebration for the project team to reward them for a job well done that led to the successful completion of a major project. It was clear to the project manager that the team was relaxed and enjoying themselves, with some talking about upcoming vacation plans. What type of project ending is this?\nA. Integration\nB. Addition\nC. Extinction\nD. Starvation",
+        "options": {
+          "A": "Integration",
+          "B": "Addition",
+          "C": "Extinction",
+          "D": "Starvarion"
+        },
+        "correct_answer": "A",
+        "explanation": "Integration occurs when the project is successfully completed and resources are integrated back into the organization.",
+        "page_number": 44,
+        "difficulty": "Medium",
+        "keywords": ["project closure", "integration", "project ending", "team celebration"]
+      },
+      {
+        "id": "Q1-077",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Conflict Resolution",
+        "task": "Manage conflict",
+        "question_number": 77,
+        "question_text": "Kaylee is a risk manager working in collaboration with Alyssa, a project manager, and both work for a top healthcare company. During a tense moment, they have a heated debate on how a risk should be treated. They decide to get the sponsor's viewpoint and reach consensus after further discussion. What conflict-resolution technique did they use?\nA. Avoid\nB. Collaborate\nC. Direct\nD. Compromise",
+        "options": {
+          "A": "Avoid",
+          "B": "Collaborate",
+          "C": "Direct",
+          "D": "Compromise"
+        },
+        "correct_answer": "B",
+        "explanation": "Collaboration involves working together to reach consensus through discussion and input from relevant parties.",
+        "page_number": 45,
+        "difficulty": "Medium",
+        "keywords": ["conflict resolution", "collaboration", "consensus", "risk management"]
+      },
+      {
+        "id": "Q1-078",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Leadership Styles",
+        "task": "Lead a team",
+        "question_number": 78,
+        "question_text": "Your manager requests a meeting with you. When you meet, she asks you about the third paragraph of the recent status report. She doesn't understand what it means and believes that it may cast a bad light on her and the team. She asks you to explain, listens to your response, restates what you said, and then offers suggestions regarding how to phrase this type of information on future status reports. Which style of leadership and type of power does your manager practice?\nA. Transactional and punishment\nB. Transformational and legitimate\nC. Democratic and referent\nD. Laissez-faire and reward",
+        "options": {
+          "A": "Transactional and punishment",
+          "B": "Transformational and legitimate",
+          "C": "Democratic and referent",
+          "D": "Laissez-faire and reward"
+        },
+        "correct_answer": "C",
+        "explanation": "Democratic leadership involves consultation and discussion; referent power comes from respect and admiration.",
+        "page_number": 45,
+        "difficulty": "Hard",
+        "keywords": ["leadership styles", "democratic", "referent power", "communication", "consultation"]
+      },
+      {
+        "id": "Q1-079",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Ethics and Professional Conduct",
+        "task": "Ensure honesty",
+        "question_number": 79,
+        "question_text": "Your colleague recently accepted a job transfer that requires a PMP credential. During a recent conversation, he confided to you that he lied on his application in order to get the assignment. This is an example of what?\nA. A bad friend\nB. Poor judgment\nC. An ethics violation\nD. Unprofessional behavior",
+        "options": {
+          "A": "A bad friend",
+          "B": "Poor judgment",
+          "C": "An ethics violation",
+          "D": "Unprofessional behavior"
+        },
+        "correct_answer": "C",
+        "explanation": "Lying on an application is a clear violation of the PMI Code of Ethics and Professional Conduct.",
+        "page_number": 45,
+        "difficulty": "Easy",
+        "keywords": ["ethics", "honesty", "PMP application", "misrepresentation", "violation"]
+      },
+      {
+        "id": "Q1-080",
+        "chapter": 1,
+        "domain": "People",
+        "subtopic": "Stakeholder Analysis",
+        "task": "Identify stakeholders",
+        "question_number": 80,
+        "question_text": "Reasons to Lyv is the top client of a large marketing firm. Trudy is the president of Reasons to Lyv and has decided to launch a product that leverages new GPS tracking technology. She sits down with Roy, the project manager on the project, to discuss which stakeholders are resistant, unaware, neutral, supportive, or leading within the project. What tool or technique are they using?\nA. Data representation\nB. Data analysis\nC. Data gathering\nD. Expert judgment",
+        "options": {
+          "A": "Data representation",
+          "B": "Data analysis",
+          "C": "Data gathering",
+          "D": "Expert judgment"
+        },
+        "correct_answer": "A",
+        "explanation": "Categorizing stakeholders by engagement level is a data representation technique (stakeholder engagement assessment matrix).",
+        "page_number": 45,
+        "difficulty": "Medium",
+        "keywords": ["stakeholder analysis", "data representation", "engagement assessment", "categorization"]
+      }
+    ],
+    
+    "summary": {
+      "total_questions_extracted": 80,
+      "last_question_id": "Q1-080",
+      "last_page_number": 45,
+      "domains_covered": ["People"],
+      "subtopics_count": 20,
+      "date_extracted": "2024-01-15"
+    }
+  }
+}
