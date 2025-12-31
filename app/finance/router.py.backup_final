@@ -121,7 +121,8 @@ async def upload_csv(
         ).strip()
 
         txn_type = "expense" if amount < 0 else "income"
-        categorized_type, auto_category = categorize(description, amount)
+        auto_category = categorize(description, amount)
+
         cur.execute(
             """
             INSERT INTO transactions
