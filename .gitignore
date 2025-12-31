@@ -109,3 +109,4 @@ __pycache__/
 *.pyo
 myjournal-ui/src/data/*.backup
 *.backup
+myjournal-ui/src/scripts/*.backup
