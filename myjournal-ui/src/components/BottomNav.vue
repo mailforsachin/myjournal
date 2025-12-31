@@ -1,101 +1,171 @@
 <template>
-  <!-- Bottom Navigation - Mobile only -->
-  <div class="btm-nav bg-base-100/95 backdrop-blur-sm border-t border-base-300 z-40 md:hidden">
-    <!-- Dashboard -->
-    <button
-      @click="navigateTo('/dashboard')"
-      class="flex flex-col items-center justify-center"
-      :class="{ 'active': isActive('/dashboard') }"
+  <!-- Main Mobile Navigation -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-base-100/95 backdrop-blur-lg border-t border-base-300 shadow-2xl">
+    
+    <!-- SECONDARY ROW - Finance Sub-navigation (only shows when on Finance routes) -->
+    <div 
+      v-if="isFinanceRoute" 
+      class="flex justify-around items-center px-2 py-3 border-b border-base-300 bg-base-200/50"
     >
-      <div class="text-2xl mb-1">📊</div>
-      <span class="text-xs font-medium">Dashboard</span>
-    </button>
+      <RouterLink
+        to="/upload"
+        class="flex flex-col items-center justify-center px-2"
+        :class="{ 'text-primary': isActive('/upload') }"
+      >
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-1"
+          :class="isActive('/upload') ? 'bg-primary/20' : 'bg-base-300'">
+          <span class="text-2xl">⬆️</span>
+        </div>
+        <span class="text-xs font-medium">Import</span>
+      </RouterLink>
 
-    <!-- Finance -->
-    <button
-      @click="navigateTo('/transactions')"
-      class="flex flex-col items-center justify-center"
-      :class="{ 'active': isActive('/transactions') }"
-    >
-      <div class="text-2xl mb-1">💰</div>
-      <span class="text-xs font-medium">Finance</span>
-    </button>
+      <RouterLink
+        to="/transactions"
+        class="flex flex-col items-center justify-center px-2"
+        :class="{ 'text-primary': isActive('/transactions') }"
+      >
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-1"
+          :class="isActive('/transactions') ? 'bg-primary/20' : 'bg-base-300'">
+          <span class="text-2xl">📄</span>
+        </div>
+        <span class="text-xs font-medium">Transactions</span>
+      </RouterLink>
 
-    <!-- Language -->
-    <button
-      @click="navigateTo('/language')"
-      class="flex flex-col items-center justify-center"
-      :class="{ 'active': isActive('/language') }"
-    >
-      <div class="text-2xl mb-1">🌐</div>
-      <span class="text-xs font-medium">Language</span>
-    </button>
+      <RouterLink
+        to="/rules"
+        class="flex flex-col items-center justify-center px-2"
+        :class="{ 'text-primary': isActive('/rules') }"
+      >
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-1"
+          :class="isActive('/rules') ? 'bg-primary/20' : 'bg-base-300'">
+          <span class="text-2xl">⚙️</span>
+        </div>
+        <span class="text-xs font-medium">Auto-Categorize</span>
+      </RouterLink>
+    </div>
 
-    <!-- PMP -->
-    <button
-      @click="navigateTo('/pmp')"
-      class="flex flex-col items-center justify-center"
-      :class="{ 'active': isActive('/pmp') }"
-    >
-      <div class="text-2xl mb-1">📚</div>
-      <span class="text-xs font-medium">PMP</span>
-    </button>
+    <!-- PRIMARY ROW - Main Navigation (always visible) -->
+    <div class="flex justify-around items-center px-1 py-3">
+      <!-- Dashboard -->
+      <RouterLink
+        to="/dashboard"
+        class="flex flex-col items-center justify-center flex-1 px-1"
+        :class="{ 'text-primary': isActive('/dashboard') }"
+      >
+        <div class="w-10 h-10 rounded-full flex items-center justify-center mb-1"
+          :class="isActive('/dashboard') ? 'bg-primary/20' : 'bg-base-300/50'">
+          <span class="text-xl">📊</span>
+        </div>
+        <span class="text-xs">Dashboard</span>
+      </RouterLink>
 
-    <!-- Quotes -->
-    <button
-      @click="navigateTo('/quotes')"
-      class="flex flex-col items-center justify-center"
-      :class="{ 'active': isActive('/quotes') }"
-    >
-      <div class="text-2xl mb-1">💬</div>
-      <span class="text-xs font-medium">Quotes</span>
-    </button>
+      <!-- Finance -->
+      <RouterLink
+        to="/transactions"
+        class="flex flex-col items-center justify-center flex-1 px-1"
+        :class="{ 
+          'text-primary': isFinanceRoute,
+          'opacity-60': !isFinanceRoute 
+        }"
+      >
+        <div class="w-10 h-10 rounded-full flex items-center justify-center mb-1"
+          :class="isFinanceRoute ? 'bg-primary/20' : 'bg-base-300/30'">
+          <span class="text-xl">💰</span>
+        </div>
+        <span class="text-xs">Finance</span>
+      </RouterLink>
+
+      <!-- Language -->
+      <RouterLink
+        to="/language"
+        class="flex flex-col items-center justify-center flex-1 px-1"
+        :class="{ 
+          'text-primary': isActive('/language'),
+          'opacity-60': !isActive('/language') 
+        }"
+      >
+        <div class="w-10 h-10 rounded-full flex items-center justify-center mb-1"
+          :class="isActive('/language') ? 'bg-primary/20' : 'bg-base-300/30'">
+          <span class="text-xl">🌐</span>
+        </div>
+        <span class="text-xs">Language</span>
+      </RouterLink>
+
+      <!-- PMP -->
+      <RouterLink
+        to="/pmp"
+        class="flex flex-col items-center justify-center flex-1 px-1"
+        :class="{ 
+          'text-primary': isActive('/pmp'),
+          'opacity-60': !isActive('/pmp') 
+        }"
+      >
+        <div class="w-10 h-10 rounded-full flex items-center justify-center mb-1"
+          :class="isActive('/pmp') ? 'bg-primary/20' : 'bg-base-300/30'">
+          <span class="text-xl">📚</span>
+        </div>
+        <span class="text-xs">PMP</span>
+      </RouterLink>
+
+      <!-- Quotes -->
+      <RouterLink
+        to="/quotes"
+        class="flex flex-col items-center justify-center flex-1 px-1"
+        :class="{ 
+          'text-primary': isActive('/quotes'),
+          'opacity-60': !isActive('/quotes') 
+        }"
+      >
+        <div class="w-10 h-10 rounded-full flex items-center justify-center mb-1"
+          :class="isActive('/quotes') ? 'bg-primary/20' : 'bg-base-300/30'">
+          <span class="text-xl">💬</span>
+        </div>
+        <span class="text-xs">Quotes</span>
+      </RouterLink>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute } from "vue-router"
+import { computed } from "vue"  // Fixed: Import computed from vue, not vue-router
 
-const router = useRouter()
 const route = useRoute()
 
-const navigateTo = (path) => {
-  router.push(path)
+const isActive = (path) => {
+  return route.path === path || route.path.startsWith(path + "/")
 }
 
-const isActive = (path) => {
-  return route.path === path || route.path.startsWith(path + '/')
-}
+const isFinanceRoute = computed(() => {
+  const financeRoutes = ['/transactions', '/upload', '/rules', '/finance']
+  return financeRoutes.some(routePath => 
+    route.path === routePath || route.path.startsWith(routePath + "/")
+  )
+})
 </script>
 
 <style scoped>
-/* Fix DaisyUI btm-nav to be horizontal */
-.btm-nav {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-around !important;
-  height: 5rem !important;
+/* Animation for sub-navigation */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease;
+  max-height: 80px;
 }
 
-.btm-nav > button {
-  flex: 1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-width: 0 !important;
-  padding: 0.5rem 0 !important;
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
 }
 
-.btm-nav > button.active {
-  background-color: rgba(var(--color-primary) / 0.1) !important;
-  border-top: 2px solid rgb(var(--color-primary)) !important;
+/* Active state styling */
+.router-link-active {
+  @apply text-primary;
 }
 
-/* Hide on desktop */
-@media (min-width: 768px) {
-  .btm-nav {
-    display: none !important;
-  }
+/* Ensure content doesn't hide behind nav */
+.main-content {
+  padding-bottom: 5rem;
 }
 </style>

@@ -41,7 +41,7 @@ const upload = async () => {
   uploading.value = true
   const form = new FormData()
   form.append("file", file.value)
-  const res = await api.post("/api/finance/upload-csv", form)
+  const res = await api.post("/finance/upload-csv", form)
   result.value = res.data
   uploading.value = false
 }
