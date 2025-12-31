@@ -1,19 +1,37 @@
 <template>
   <AppLayout>
-    <!-- Welcome Header -->
+    <!-- Welcome Header with Period Selector -->
     <div class="mb-6 fade-in">
       <div class="flex items-center justify-between mb-2">
         <div>
           <h1 class="text-2xl font-bold text-base-content">Welcome back!</h1>
-          <p class="text-base-content/70 text-sm">Here's your financial overview</p>
+          <p class="text-base-content/70 text-sm">{{ periodLabel }}</p>
         </div>
-        <div class="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">
-          {{ new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) }}
+        
+        <div class="flex items-center gap-2">
+          <div class="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">
+            {{ currentDateDisplay }}
+          </div>
+          
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-outline btn-sm">
+              {{ periodLabel }}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            <ul tabindex="0" class="dropdown-content menu menu-sm bg-base-100 rounded-box shadow-lg border border-base-300 mt-1 p-2 w-40">
+              <li><a @click="changePeriod('month')">This Month</a></li>
+              <li><a @click="changePeriod('quarter')">This Quarter</a></li>
+              <li><a @click="changePeriod('year')">This Year</a></li>
+              <li><a @click="changePeriod('all')">All Time</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- KPI Cards - Enhanced -->
+    <!-- KPI Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 fade-in">
       <div class="card bg-gradient-to-br from-success/90 to-success shadow-lg card-hover">
         <div class="card-body p-5 text-white">
@@ -28,7 +46,9 @@
               </svg>
             </div>
           </div>
-          <div class="text-xs opacity-80 mt-2">↑ 12% from last month</div>
+          <div class="text-xs opacity-80 mt-2" v-if="summary.transaction_count">
+            From {{ summary.transaction_count }} transactions
+          </div>
         </div>
       </div>
 
@@ -45,7 +65,9 @@
               </svg>
             </div>
           </div>
-          <div class="text-xs opacity-80 mt-2">↓ 8% from last month</div>
+          <div class="text-xs opacity-80 mt-2" v-if="summary.by_category && summary.by_category.length">
+            {{ summary.by_category.length }} categories
+          </div>
         </div>
       </div>
 
@@ -54,7 +76,7 @@
           <div class="flex items-center justify-between">
             <div>
               <div class="text-sm opacity-70 font-medium">Net Balance</div>
-              <div 
+              <div
                 class="text-2xl font-bold mt-1"
                 :class="summary.net >= 0 ? 'text-success' : 'text-error'"
               >
@@ -81,24 +103,18 @@
         <div class="card-body">
           <div class="flex items-center justify-between mb-4">
             <h2 class="font-bold text-base-content">Spending by Category</h2>
-            <div class="dropdown dropdown-end">
-              <div tabindex="0" role="button" class="btn btn-ghost btn-sm">This month ▼</div>
-              <ul tabindex="0" class="dropdown-content menu menu-sm bg-base-100 rounded-box shadow-lg border border-base-300 mt-1 p-2 w-40">
-                <li><a>This month</a></li>
-                <li><a>Last month</a></li>
-                <li><a>This quarter</a></li>
-                <li><a>This year</a></li>
-              </ul>
+            <div class="text-xs text-base-content/70">
+              {{ periodLabel }}
             </div>
           </div>
           <CategoryPie :categories="summary.by_category || []" />
-          <div class="text-xs text-base-content/60 text-center mt-4">
-            Click on legend to toggle categories
+          <div class="text-xs text-base-content/60 text-center mt-4" v-if="!summary.by_category || summary.by_category.length === 0">
+            No spending data for this period
           </div>
         </div>
       </div>
 
-      <!-- Filters & Stats -->
+      <!-- Filters & Recent Transactions -->
       <div class="space-y-6">
         <!-- Quick Filters -->
         <div class="card bg-base-100 shadow-lg border border-base-300 card-hover fade-in">
@@ -119,7 +135,7 @@
           </div>
         </div>
 
-        <!-- Recent Transactions Preview -->
+        <!-- Recent Transactions -->
         <div class="card bg-base-100 shadow-lg border border-base-300 card-hover fade-in">
           <div class="card-body p-5">
             <div class="flex items-center justify-between mb-4">
@@ -128,16 +144,15 @@
                 View all →
               </RouterLink>
             </div>
-            
-            <div class="space-y-3">
+
+            <div class="space-y-3" v-if="recentTransactions.length > 0">
               <div
-                v-for="(t, index) in recentTransactions"
+                v-for="t in recentTransactions"
                 :key="t.id"
                 class="flex items-center justify-between p-3 rounded-lg hover:bg-base-200 transition-all duration-300"
-                :class="index < 3 ? '' : 'hidden md:flex'"
               >
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full flex items-center justify-center" 
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center"
                        :class="t.amount < 0 ? 'bg-error/10 text-error' : 'bg-success/10 text-success'">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -147,28 +162,31 @@
                     <div class="font-medium text-sm">{{ t.description }}</div>
                     <div class="text-xs opacity-60">
                       {{ t.manual_category || t.auto_category || "Uncategorized" }}
+                      <span class="ml-2">{{ formatDate(t.transaction_date) }}</span>
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="text-right">
                   <div :class="t.amount < 0 ? 'text-error font-bold' : 'text-success font-bold'">
                     {{ formatCurrency(t.amount) }}
                   </div>
                   <div class="text-xs opacity-60">
-                    {{ formatDate(t.date) }}
+                    {{ t.type }}
                   </div>
                 </div>
               </div>
+            </div>
+            
+            <div v-else class="text-center py-4">
+              <p class="text-base-content/60">No transactions found</p>
             </div>
 
             <button
               class="btn btn-outline btn-sm w-full mt-4 hover:btn-primary transition-all duration-300"
               @click="loadMore"
+              v-if="transactions.length < totalTransactions"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
               Load more transactions
             </button>
           </div>
@@ -198,7 +216,7 @@
         <div class="card-body p-5">
           <div class="flex items-center gap-3">
             <div class="p-3 rounded-full bg-warning/20 group-hover:bg-warning/30 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org2000/svg" class="h-6 w-6 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -216,10 +234,10 @@
           <div class="flex items-center justify-between">
             <div>
               <h3 class="font-bold text-base-content">Export Report</h3>
-              <p class="text-sm opacity-70">Download monthly summary</p>
+              <p class="text-sm opacity-70">Download {{ periodLabel.toLowerCase() }} data</p>
             </div>
-            <button class="btn btn-outline btn-sm hover:btn-primary">
-              Export PDF
+            <button class="btn btn-outline btn-sm hover:btn-primary" @click="exportData">
+              Export CSV
             </button>
           </div>
         </div>
@@ -236,14 +254,27 @@ import api from "@/services/api"
 
 const summary = ref({ income: 0, expense: 0, net: 0, by_category: [] })
 const transactions = ref([])
+const totalTransactions = ref(0)
 const page = ref(1)
 const limit = 10
 const type = ref(null)
+const period = ref("month")
 
 const filters = ["All", "Income", "Expense", "Transfer"]
 
-// Get only recent transactions for preview
+// Computed properties
 const recentTransactions = computed(() => transactions.value.slice(0, 5))
+const currentDateDisplay = computed(() => {
+  return new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+})
+const periodLabel = computed(() => {
+  switch(period.value) {
+    case 'month': return 'This Month'
+    case 'quarter': return 'This Quarter'
+    case 'year': return 'This Year'
+    default: return 'All Time'
+  }
+})
 
 const formatCurrency = (amount) => {
   if (amount === undefined || amount === null) return '$0.00'
@@ -261,22 +292,39 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
 }
 
+const loadSummary = async () => {
+  try {
+    const res = await api.get("/finance/summary", {
+      params: { period: period.value }
+    })
+    summary.value = res.data
+  } catch (error) {
+    console.error("Failed to load summary:", error)
+    summary.value = { income: 0, expense: 0, net: 0, by_category: [] }
+  }
+}
+
 const loadData = async (reset = false) => {
   if (reset) {
     transactions.value = []
     page.value = 1
   }
 
-  const res = await api.get("/finance/transactions", {
-    params: {
-      page: page.value,
-      limit,
-      type: type.value === "All" ? null : type.value,
-    },
-  })
+  try {
+    const res = await api.get("/finance/transactions", {
+      params: {
+        page: page.value,
+        limit,
+        type: type.value === "All" ? null : type.value,
+      },
+    })
 
-  transactions.value.push(...res.data.transactions)
-  page.value++
+    transactions.value.push(...res.data.transactions)
+    totalTransactions.value = res.data.total
+    page.value++
+  } catch (error) {
+    console.error("Failed to load transactions:", error)
+  }
 }
 
 const applyFilter = (f) => {
@@ -286,18 +334,34 @@ const applyFilter = (f) => {
 
 const loadMore = () => loadData()
 
-onMounted(async () => {
+const changePeriod = async (newPeriod) => {
+  period.value = newPeriod
+  await loadSummary()
+  loadData(true)
+}
+
+const exportData = async () => {
   try {
-    const [summaryRes, transactionsRes] = await Promise.all([
-      api.get("/finance/summary"),
-      api.get("/finance/transactions", { params: { page: 1, limit } })
-    ])
+    const response = await api.get("/finance/export", {
+      params: { format: "csv" },
+      responseType: 'blob'
+    })
     
-    summary.value = summaryRes.data
-    transactions.value = transactionsRes.data.transactions
-    page.value = 2
+    const url = window.URL.createObjectURL(new Blob([response.data]))
+    const link = document.createElement('a')
+    link.href = url
+    link.setAttribute('download', `transactions_${period.value}_${new Date().toISOString().split('T')[0]}.csv`)
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
   } catch (error) {
-    console.error("Failed to load dashboard data:", error)
+    console.error("Export failed:", error)
+    alert("Export failed. Please try again.")
   }
+}
+
+onMounted(async () => {
+  await loadSummary()
+  loadData()
 })
 </script>

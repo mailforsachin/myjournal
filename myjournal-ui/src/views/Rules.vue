@@ -26,12 +26,12 @@ const text = ref("")
 const saved = ref(false)
 
 onMounted(async () => {
-  const res = await api.get("/api/finance/rules")
+  const res = await api.get("/finance/rules")
   text.value = JSON.stringify(res.data, null, 2)
 })
 
 const save = async () => {
-  await api.put("/api/finance/rules", JSON.parse(text.value))
+  await api.put("/finance/rules", JSON.parse(text.value))
   saved.value = true
   setTimeout(() => (saved.value = false), 2000)
 }

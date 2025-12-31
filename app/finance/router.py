@@ -1,11 +1,14 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File, Depends, Query
 import csv, io, json
-from datetime import datetime
 from app.database import get_db
 from app.auth.deps import get_current_user
 from app.finance.categorizer import categorize
 from app.utils.events import log_event
 import os
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+from typing import Optional
+
 
 RULES_PATH = os.path.join(os.path.dirname(__file__), "rules.json")
 
@@ -17,6 +20,7 @@ router = APIRouter()
 @router.get("/")
 async def finance_home():
     return {"message": "Finance module OK"}
+
 
 # -------------------------
 # TRANSACTIONS (pagination + filters)
@@ -79,6 +83,7 @@ async def get_transactions(
         "total": total,
         "transactions": rows,
     }
+
 
 # -------------------------
 # CSV UPLOAD
@@ -151,6 +156,7 @@ async def upload_csv(
 
     return {"file": file.filename, "inserted": inserted}
 
+
 # -------------------------
 # CSV REPLAY (STEP 5)
 # -------------------------
@@ -211,6 +217,7 @@ async def replay_csv(
         "deleted_rows": deleted
     }
 
+
 # -------------------------
 # MANUAL CATEGORY OVERRIDE
 # -------------------------
@@ -246,50 +253,119 @@ async def override_category(
         "manual_category": category,
     }
 
+
 # -------------------------
 # SUMMARY (STEP 6 backend)
 # -------------------------
 @router.get("/summary")
-async def finance_summary(user_id: int = Depends(get_current_user)):
+async def finance_summary(
+    user_id: int = Depends(get_current_user),
+    period: Optional[str] = Query(None, description="Time period: month, year, quarter, all"),
+    start_date: Optional[str] = Query(None, description="Start date (YYYY-MM-DD)"),
+    end_date: Optional[str] = Query(None, description="End date (YYYY-MM-DD)")
+):
     conn = get_db()
     cur = conn.cursor(dictionary=True)
 
-    cur.execute(
-        "SELECT SUM(amount) AS total FROM transactions WHERE user_id=%s AND amount>0",
-        (user_id,),
-    )
-    income = cur.fetchone()["total"] or 0
+    # Build WHERE clauses
+    clauses = ["user_id=%s"]
+    params = [user_id]
 
-    cur.execute(
-        "SELECT SUM(amount) AS total FROM transactions WHERE user_id=%s AND amount<0",
-        (user_id,),
-    )
-    expense = abs(cur.fetchone()["total"] or 0)
+    # Handle date filtering
+    date_filter = ""
+    if period and period != "all":
+        today = datetime.now()
+        if period == "month":
+            start = today.replace(day=1)
+            end = (start + relativedelta(months=1)) - timedelta(days=1)
+        elif period == "quarter":
+            quarter = (today.month - 1) // 3
+            start = datetime(today.year, quarter * 3 + 1, 1)
+            end = (start + relativedelta(months=3)) - timedelta(days=1)
+        elif period == "year":
+            start = datetime(today.year, 1, 1)
+            end = datetime(today.year, 12, 31)
+        else:
+            start = end = None
 
+        if start and end:
+            clauses.append("transaction_date >= %s")
+            clauses.append("transaction_date <= %s")
+            params.extend([start.date(), end.date()])
+
+    # Handle custom date range
+    elif start_date and end_date:
+        try:
+            start = datetime.strptime(start_date, "%Y-%m-%d").date()
+            end = datetime.strptime(end_date, "%Y-%m-%d").date()
+            clauses.append("transaction_date >= %s")
+            clauses.append("transaction_date <= %s")
+            params.extend([start, end])
+        except ValueError:
+            pass
+
+    where = " AND ".join(clauses)
+
+    # Get ALL transactions for this period
     cur.execute(
-        """
-        SELECT
-            COALESCE(manual_category, auto_category) AS category,
-            SUM(amount) AS total
-        FROM transactions
-        WHERE user_id=%s
-        GROUP BY COALESCE(manual_category, auto_category)
-        ORDER BY ABS(SUM(amount)) DESC
+        f"""
+        SELECT * FROM transactions
+        WHERE {where}
         """,
-        (user_id,),
+        params
     )
-    categories = cur.fetchall()
+    all_transactions = cur.fetchall()
 
-    cur.execute(
-        """
-        SELECT confirmed, COUNT(*) AS count
-        FROM transactions
-        WHERE user_id=%s
-        GROUP BY confirmed
-        """,
-        (user_id,),
-    )
-    confirmed = cur.fetchall()
+    # Calculate summary with proper filtering
+    income = 0
+    expense = 0
+    category_totals = {}
+
+    # Keywords to exclude from income/expense totals
+    exclude_keywords = [
+        "transfer",
+        "investment",
+        "credit card payment",
+        "loan",
+        "withdrawal",
+        "payment"
+    ]
+
+    for tx in all_transactions:
+        # Skip transfers and investments
+        should_exclude = False
+        if tx["type"] and tx["type"].lower() == "transfer":
+            should_exclude = True
+        else:
+            # Check description and category
+            desc = (tx.get("description") or "").lower()
+            cat = (tx.get("manual_category") or tx.get("auto_category") or "").lower()
+
+            for keyword in exclude_keywords:
+                if keyword in desc or keyword in cat:
+                    should_exclude = True
+                    break
+
+        if should_exclude:
+            continue
+
+        # Add to income/expense
+        amount = tx["amount"]
+        if amount > 0:
+            income += amount
+        else:
+            expense += abs(amount)
+
+        # Add to category totals (expenses only)
+        if amount < 0:
+            category = tx.get("manual_category") or tx.get("auto_category") or "Uncategorized"
+            category_totals[category] = category_totals.get(category, 0) + abs(amount)
+
+    # Format categories
+    by_category = [
+        {"category": cat, "total": -total}  # Negative for expenses
+        for cat, total in sorted(category_totals.items(), key=lambda x: x[1], reverse=True)
+    ]
 
     cur.close()
     conn.close()
@@ -298,13 +374,17 @@ async def finance_summary(user_id: int = Depends(get_current_user)):
         "income": round(income, 2),
         "expense": round(expense, 2),
         "net": round(income - expense, 2),
-        "by_category": categories,
-        "confirmed": confirmed,
+        "by_category": by_category,
+        "period": period or "all",
+        "transaction_count": len(all_transactions)
     }
+
+
 @router.get("/rules")
 async def get_rules(user_id: int = Depends(get_current_user)):
     with open(RULES_PATH) as f:
         return json.load(f)
+
 
 @router.put("/rules")
 async def update_rules(
@@ -315,3 +395,90 @@ async def update_rules(
         json.dump(payload, f, indent=2)
 
     return {"status": "updated"}
+
+@router.get("/export")
+async def export_transactions(
+    user_id: int = Depends(get_current_user),
+    format: str = Query("csv", description="Export format: csv, json"),
+    start_date: Optional[str] = Query(None, description="Start date (YYYY-MM-DD)"),
+    end_date: Optional[str] = Query(None, description="End date (YYYY-MM-DD)")
+):
+    conn = get_db()
+    cur = conn.cursor(dictionary=True)
+    
+    # Build WHERE clauses
+    clauses = ["user_id=%s"]
+    params = [user_id]
+    
+    if start_date and end_date:
+        try:
+            start = datetime.strptime(start_date, "%Y-%m-%d").date()
+            end = datetime.strptime(end_date, "%Y-%m-%d").date()
+            clauses.append("transaction_date >= %s")
+            clauses.append("transaction_date <= %s")
+            params.extend([start, end])
+        except ValueError:
+            pass
+    
+    where = " AND ".join(clauses)
+    
+    cur.execute(
+        f"""
+        SELECT 
+            transaction_date as date,
+            description,
+            amount,
+            type,
+            auto_category,
+            manual_category,
+            confirmed,
+            source_file
+        FROM transactions
+        WHERE {where}
+        ORDER BY transaction_date DESC
+        """,
+        params
+    )
+    
+    transactions = cur.fetchall()
+    cur.close()
+    conn.close()
+    
+    if format == "csv":
+        import csv
+        import io
+        
+        output = io.StringIO()
+        writer = csv.writer(output)
+        
+        # Write header
+        writer.writerow([
+            "Date", "Description", "Amount", "Type", 
+            "Auto Category", "Manual Category", "Confirmed", "Source File"
+        ])
+        
+        # Write data
+        for tx in transactions:
+            writer.writerow([
+                tx["date"],
+                tx["description"],
+                tx["amount"],
+                tx["type"],
+                tx["auto_category"],
+                tx["manual_category"],
+                "Yes" if tx["confirmed"] else "No",
+                tx["source_file"]
+            ])
+        
+        from fastapi import Response
+        return Response(
+            content=output.getvalue(),
+            media_type="text/csv",
+            headers={"Content-Disposition": f"attachment; filename=transactions_{datetime.now().date()}.csv"}
+        )
+    
+    else:  # json
+        return {
+            "count": len(transactions),
+            "transactions": transactions
+        }
