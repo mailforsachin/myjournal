@@ -107,3 +107,5 @@ venv/
 __pycache__/
 *.pyc
 *.pyo
+myjournal-ui/src/data/*.backup
+*.backup
